@@ -4,6 +4,9 @@
 
 [![npm version](https://img.shields.io/npm/v/@stylekit/ui?color=2D5A3D)](https://www.npmjs.com/package/@stylekit/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8B6B4A.svg)](https://opensource.org/licenses/MIT)
+[![Demo](https://img.shields.io/badge/Demo-Live-4A7C59)](https://dader34.github.io/stylekit-ui/)
+
+**[View Live Demo](https://dader34.github.io/stylekit-ui/)**
 
 ---
 

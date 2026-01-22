@@ -5,6 +5,7 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   root: resolve(__dirname),
+  base: '/stylekit-ui/',
   resolve: {
     alias: {
       '@': resolve(__dirname, '../src'),
