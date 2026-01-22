@@ -1,73 +1,24 @@
-<div align="center">
+# 🌲 StyleKit UI
 
-<img src="https://via.placeholder.com/120x120/2D5A3D/FDFCFA?text=SK" alt="StyleKit Logo" width="120" height="120" style="border-radius: 24px;" />
+**A React component library with 8 beautiful, distinct themes**
 
-# StyleKit UI
-
-<p>
-  <strong>A React component library with 8 beautiful, distinct themes</strong>
-</p>
-
-<p>
-  <a href="#installation"><img src="https://img.shields.io/badge/npm-v0.1.0-2D5A3D?style=flat-square&labelColor=1F2E21" alt="npm version" /></a>
-  <a href="#themes"><img src="https://img.shields.io/badge/themes-8-D4A574?style=flat-square&labelColor=1F2E21" alt="8 themes" /></a>
-  <a href="#components"><img src="https://img.shields.io/badge/components-10+-4A7C59?style=flat-square&labelColor=1F2E21" alt="10+ components" /></a>
-  <a href="https://github.com/dader34/stylekit-ui/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-8B6B4A?style=flat-square&labelColor=1F2E21" alt="MIT License" /></a>
-</p>
-
-<br />
-
-</div>
+[![npm version](https://img.shields.io/npm/v/@stylekit/ui?color=2D5A3D)](https://www.npmjs.com/package/@stylekit/ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8B6B4A.svg)](https://opensource.org/licenses/MIT)
 
 ---
-
-<br />
 
 ## Overview
 
 StyleKit UI provides a complete set of accessible, customizable React components that adapt beautifully across **8 distinct visual themes**. Switch between aesthetics instantly—from Apple-inspired minimalism to bold brutalism to warm glassmorphism—all with a single theme change.
 
-<br />
-
-<table>
-<tr>
-<td width="50%">
-
 ### Why StyleKit?
 
-- **8 Unique Themes** — Not just color swaps, but complete aesthetic transformations including typography, spacing, shadows, and animations
-- **TypeScript First** — Full type safety with exported types for all components and themes
-- **Accessible** — WCAG 2.1 compliant with proper ARIA attributes and keyboard navigation
-- **Tree-Shakeable** — Import only what you need
-
-</td>
-<td width="50%">
-
-### Quick Example
-
-```tsx
-import { ThemeProvider, Button } from '@stylekit/ui';
-
-function App() {
-  return (
-    <ThemeProvider defaultTheme="forest">
-      <Button variant="primary">
-        Get Started
-      </Button>
-    </ThemeProvider>
-  );
-}
-```
-
-</td>
-</tr>
-</table>
-
-<br />
+- 🎨 **8 Unique Themes** — Not just color swaps, but complete aesthetic transformations including typography, spacing, shadows, and animations
+- 📘 **TypeScript First** — Full type safety with exported types for all components and themes
+- ♿ **Accessible** — WCAG 2.1 compliant with proper ARIA attributes and keyboard navigation
+- 🌳 **Tree-Shakeable** — Import only what you need
 
 ---
-
-<br />
 
 ## Installation
 
@@ -83,62 +34,38 @@ yarn add @stylekit/ui
 pnpm add @stylekit/ui
 ```
 
-<br />
+---
+
+## Quick Start
+
+```tsx
+import { ThemeProvider, Button } from '@stylekit/ui';
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="forest">
+      <Button variant="primary">
+        Get Started
+      </Button>
+    </ThemeProvider>
+  );
+}
+```
 
 ---
 
-<br />
-
 ## Themes
 
-<table>
-<tr>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/007AFF/FFFFFF?text=" alt="Cupertino" /><br />
-<strong>Cupertino</strong><br />
-<sub>Apple-inspired, clean</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/D4A5A5/FFFFFF?text=" alt="Rose Gold" /><br />
-<strong>Rose Gold</strong><br />
-<sub>Elegant, warm blush</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/F59E0B/78350F?text=" alt="Glass" /><br />
-<strong>Glass</strong><br />
-<sub>Desert mirage warmth</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/000000/FFFFFF?text=" alt="Brutalist" /><br />
-<strong>Brutalist</strong><br />
-<sub>Bold, raw, sharp</sub>
-</td>
-</tr>
-<tr>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/FAFAFA/1A1A1A?text=" alt="Minimal" /><br />
-<strong>Minimal</strong><br />
-<sub>Ultra-refined space</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/0D0221/FF00FF?text=" alt="Retrowave" /><br />
-<strong>Retrowave</strong><br />
-<sub>80s neon synthwave</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/0A0A0A/C9A227?text=" alt="Dark Luxe" /><br />
-<strong>Dark Luxe</strong><br />
-<sub>Premium dark mode</sub>
-</td>
-<td align="center" width="25%">
-<img src="https://via.placeholder.com/80x50/2D5A3D/FDFCFA?text=" alt="Forest" /><br />
-<strong>Forest</strong><br />
-<sub>Organic, earthy calm</sub>
-</td>
-</tr>
-</table>
-
-<br />
+| Theme | Description |
+|-------|-------------|
+| **Cupertino** | Clean Apple-inspired design with SF Pro aesthetics |
+| **Rose Gold** | Elegant and warm with sophisticated blush tones |
+| **Glass** | Warm desert mirage with amber and rose glassmorphism |
+| **Brutalist** | Bold and raw with sharp edges and stark contrasts |
+| **Minimal** | Ultra-refined with maximum white space |
+| **Retrowave** | 80s synthwave with neon colors and chrome |
+| **Dark Luxe** | Premium dark mode with gold accents |
+| **Forest** | Organic and calming with earthy greens |
 
 ### Using Themes
 
@@ -164,50 +91,30 @@ function ThemeSwitcher() {
 }
 ```
 
-<br />
-
 ---
-
-<br />
 
 ## Components
 
-<table>
-<tr>
-<td width="33%">
+### Form Controls
+- `Button` — Primary, secondary, outline, ghost, destructive, link variants
+- `Input` — With labels, helper text, error/success states
+- `Checkbox` — With indeterminate state support
+- `Radio` / `RadioGroup` — Controlled and uncontrolled
+- `Select` — Dropdown selection
 
-**Form Controls**
-- `Button`
-- `Input`
-- `Checkbox`
-- `Radio` / `RadioGroup`
-- `Select`
+### Feedback
+- `Alert` — Info, success, warning, error status
+- `Badge` — Solid, subtle, outline variants
+- `Tooltip` — Hover tooltips
+- `Modal` — Dialog overlays
 
-</td>
-<td width="33%">
+### Layout
+- `Card` — Elevated, outlined, filled variants
+- `Tabs` — Tabbed content navigation
+- `Avatar` / `AvatarGroup` — User avatars with status
+- `Dropdown` — Dropdown menus
 
-**Feedback**
-- `Alert`
-- `Badge`
-- `Tooltip`
-- `Modal`
-
-</td>
-<td width="33%">
-
-**Layout**
-- `Card`
-- `Tabs`
-- `Avatar` / `AvatarGroup`
-- `Dropdown`
-
-</td>
-</tr>
-</table>
-
-<br />
-
-### Component Examples
+### Examples
 
 ```tsx
 import {
@@ -222,10 +129,8 @@ import {
 
 // Buttons with variants
 <Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Delete</Button>
 
 // Input with validation states
 <Input
@@ -251,11 +156,7 @@ import {
 <Badge color="warning" variant="subtle">Pending</Badge>
 ```
 
-<br />
-
 ---
-
-<br />
 
 ## Development
 
@@ -276,28 +177,12 @@ npm run build
 npm run typecheck
 ```
 
-<br />
-
 ---
-
-<br />
-
-<div align="center">
 
 ## License
 
 MIT License — use freely in personal and commercial projects.
 
-<br />
+---
 
-<sub>
-Built with care using React, TypeScript, and Vite.<br />
-Designed to be beautiful across every theme.
-</sub>
-
-<br />
-<br />
-
-<a href="#stylekit-ui">Back to top</a>
-
-</div>
+Built with React, TypeScript, and Vite.
