@@ -33,11 +33,28 @@ body {
   outline: none;
 }
 
-/* Glass theme special background handling */
+/* Glass theme special background handling - Desert Mirage */
 [data-sk-theme='glass'] body,
 [data-sk-theme='glass'] .sk-app-root {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background:
+    linear-gradient(145deg, #FEF3E2 0%, #FECDD3 35%, #E9D5FF 70%, #DDD6FE 100%);
   min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle animated shimmer effect for glass theme */
+[data-sk-theme='glass'] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(232, 121, 169, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Retrowave theme special effects */
@@ -56,10 +73,14 @@ body {
   background: #0a0a0a;
 }
 
-/* Glass morphism backdrop for glass theme surfaces */
+/* Glass morphism backdrop for glass theme surfaces - warm shimmer */
 [data-sk-theme='glass'] .sk-surface {
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  border: 1px solid rgba(180, 83, 9, 0.12);
+  box-shadow:
+    0 4px 24px rgba(120, 53, 15, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* Utility classes */

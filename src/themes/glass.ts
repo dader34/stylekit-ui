@@ -1,67 +1,81 @@
 import { Theme } from '../types/theme';
 
 /**
- * Glass Theme
- * Glassmorphism design with frosted translucency, vibrant gradients,
- * and depth-creating blur effects. Modern and ethereal.
+ * Glass Theme - "Desert Mirage"
+ *
+ * Warm glassmorphism inspired by heat mirages shimmering over golden dunes.
+ * A radical departure from cold blue glass aesthetics — this theme embraces
+ * amber, rose, and terracotta tones that feel like liquid sunset trapped
+ * behind frosted crystal. The warm palette creates an inviting, luxurious
+ * atmosphere while maintaining that signature glass translucency.
+ *
+ * Key aesthetic: Heat shimmer + golden hour + crystalline luxury
  */
 export const glassTheme: Theme = {
   name: 'glass',
   displayName: 'Glass',
   colors: {
-    primary: '#6366F1',
-    primaryHover: '#4F46E5',
-    primaryActive: '#4338CA',
-    secondary: '#EC4899',
+    // Molten amber primary — like liquid gold behind glass
+    primary: '#F59E0B',
+    primaryHover: '#D97706',
+    primaryActive: '#B45309',
+    // Dusty rose secondary — desert flower at twilight
+    secondary: '#E879A9',
     secondaryHover: '#DB2777',
     secondaryActive: '#BE185D',
-    accent: '#06B6D4',
-    accentHover: '#0891B2',
+    // Burnt sienna accent — terracotta warmth
+    accent: '#EA580C',
+    accentHover: '#C2410C',
 
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
-    backgroundAlt: 'rgba(255, 255, 255, 0.1)',
-    backgroundElevated: 'rgba(255, 255, 255, 0.2)',
-    backgroundOverlay: 'rgba(0, 0, 0, 0.6)',
+    // Warm gradient: peach cream through rose quartz to dusty mauve
+    background: 'linear-gradient(145deg, #FEF3E2 0%, #FECDD3 35%, #E9D5FF 70%, #DDD6FE 100%)',
+    backgroundAlt: 'rgba(255, 255, 255, 0.45)',
+    backgroundElevated: 'rgba(255, 255, 255, 0.6)',
+    backgroundOverlay: 'rgba(120, 53, 15, 0.5)',
 
-    surface: 'rgba(255, 255, 255, 0.15)',
-    surfaceHover: 'rgba(255, 255, 255, 0.22)',
-    surfaceActive: 'rgba(255, 255, 255, 0.28)',
-    surfaceBorder: 'rgba(255, 255, 255, 0.25)',
+    // Warm frosted glass — like sand-dusted crystal
+    surface: 'rgba(255, 255, 255, 0.55)',
+    surfaceHover: 'rgba(255, 255, 255, 0.7)',
+    surfaceActive: 'rgba(255, 255, 255, 0.8)',
+    surfaceBorder: 'rgba(180, 83, 9, 0.2)',
 
-    text: '#FFFFFF',
-    textSecondary: 'rgba(255, 255, 255, 0.85)',
-    textMuted: 'rgba(255, 255, 255, 0.6)',
-    textOnPrimary: '#FFFFFF',
-    textOnSecondary: '#FFFFFF',
+    // Rich warm text colors for optimal contrast
+    text: '#78350F',
+    textSecondary: '#92400E',
+    textMuted: '#B45309',
+    textOnPrimary: '#FFFBEB',
+    textOnSecondary: '#FFF1F2',
 
-    success: '#34D399',
-    successBackground: 'rgba(52, 211, 153, 0.2)',
-    warning: '#FBBF24',
-    warningBackground: 'rgba(251, 191, 36, 0.2)',
-    error: '#F87171',
-    errorBackground: 'rgba(248, 113, 113, 0.2)',
-    info: '#60A5FA',
-    infoBackground: 'rgba(96, 165, 250, 0.2)',
+    // Status colors harmonized with warm palette
+    success: '#059669',
+    successBackground: 'rgba(5, 150, 105, 0.15)',
+    warning: '#CA8A04',
+    warningBackground: 'rgba(202, 138, 4, 0.18)',
+    error: '#DC2626',
+    errorBackground: 'rgba(220, 38, 38, 0.12)',
+    info: '#7C3AED',
+    infoBackground: 'rgba(124, 58, 237, 0.12)',
 
-    border: 'rgba(255, 255, 255, 0.2)',
-    borderHover: 'rgba(255, 255, 255, 0.35)',
-    focus: 'rgba(99, 102, 241, 0.5)',
-    shadow: 'rgba(0, 0, 0, 0.2)',
+    border: 'rgba(180, 83, 9, 0.15)',
+    borderHover: 'rgba(180, 83, 9, 0.3)',
+    focus: 'rgba(245, 158, 11, 0.5)',
+    shadow: 'rgba(120, 53, 15, 0.15)',
   },
   typography: {
+    // Elegant serif-influenced display with clean body text
     fontFamily:
-      '"Plus Jakarta Sans", "DM Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-    fontFamilyMono: '"JetBrains Mono", "Fira Code", monospace',
-    fontFamilyDisplay: '"Plus Jakarta Sans", "DM Sans", sans-serif',
+      '"Outfit", "Sora", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif',
+    fontFamilyMono: '"IBM Plex Mono", "JetBrains Mono", monospace',
+    fontFamilyDisplay: '"Fraunces", "Playfair Display", Georgia, serif',
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
       base: '1rem',
       lg: '1.125rem',
-      xl: '1.25rem',
-      '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
+      xl: '1.3rem',
+      '2xl': '1.625rem',
+      '3xl': '2rem',
+      '4xl': '2.5rem',
     },
     fontWeight: {
       light: 300,
@@ -72,13 +86,13 @@ export const glassTheme: Theme = {
     },
     lineHeight: {
       tight: '1.2',
-      normal: '1.5',
-      relaxed: '1.65',
+      normal: '1.55',
+      relaxed: '1.7',
     },
     letterSpacing: {
-      tight: '-0.02em',
+      tight: '-0.025em',
       normal: '-0.01em',
-      wide: '0.025em',
+      wide: '0.04em',
     },
   },
   spacing: {
@@ -102,36 +116,42 @@ export const glassTheme: Theme = {
   },
   borderRadius: {
     none: '0',
-    sm: '0.375rem',
-    base: '0.75rem',
-    md: '1rem',
-    lg: '1.25rem',
-    xl: '1.5rem',
-    '2xl': '2rem',
+    sm: '0.5rem',
+    base: '0.875rem',
+    md: '1.125rem',
+    lg: '1.5rem',
+    xl: '2rem',
+    '2xl': '2.5rem',
     full: '9999px',
   },
   shadows: {
     none: 'none',
-    sm: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    base: '0 4px 16px rgba(0, 0, 0, 0.15)',
-    md: '0 8px 24px rgba(0, 0, 0, 0.18)',
-    lg: '0 12px 40px rgba(0, 0, 0, 0.2)',
-    xl: '0 20px 60px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0 2px 8px rgba(0, 0, 0, 0.1)',
-    glow: '0 0 40px rgba(99, 102, 241, 0.4)',
+    sm: '0 2px 8px rgba(120, 53, 15, 0.08), 0 1px 3px rgba(180, 83, 9, 0.06)',
+    base: '0 4px 16px rgba(120, 53, 15, 0.1), 0 2px 6px rgba(180, 83, 9, 0.08)',
+    md: '0 8px 30px rgba(120, 53, 15, 0.12), 0 4px 12px rgba(180, 83, 9, 0.08)',
+    lg: '0 16px 50px rgba(120, 53, 15, 0.14), 0 8px 20px rgba(180, 83, 9, 0.1)',
+    xl: '0 24px 70px rgba(120, 53, 15, 0.18), 0 12px 30px rgba(180, 83, 9, 0.12)',
+    inner: 'inset 0 2px 8px rgba(120, 53, 15, 0.08)',
+    glow: '0 0 50px rgba(245, 158, 11, 0.35), 0 0 20px rgba(234, 88, 12, 0.2)',
   },
   transitions: {
-    fast: '100ms ease-out',
-    base: '200ms ease-out',
-    slow: '350ms ease-out',
-    bounce: '450ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+    fast: '120ms cubic-bezier(0.4, 0, 0.2, 1)',
+    base: '220ms cubic-bezier(0.4, 0, 0.2, 1)',
+    slow: '380ms cubic-bezier(0.4, 0, 0.2, 1)',
+    bounce: '500ms cubic-bezier(0.34, 1.56, 0.64, 1)',
   },
 };
 
-// Special glass-specific CSS properties to be applied
+// Special glass-specific effects for the Desert Mirage theme
 export const glassEffects = {
-  backdrop: 'blur(20px) saturate(180%)',
-  backdropHeavy: 'blur(40px) saturate(200%)',
+  // Warm blur that mimics heat shimmer
+  backdrop: 'blur(24px) saturate(180%) brightness(1.05)',
+  backdropHeavy: 'blur(40px) saturate(200%) brightness(1.08)',
+  // Gradient border mimicking light refraction
   borderGradient:
-    'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+    'linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(232, 121, 169, 0.25), rgba(255, 255, 255, 0.3))',
+  // Warm ambient glow
+  mirageGlow: '0 0 80px rgba(245, 158, 11, 0.25), 0 0 40px rgba(234, 88, 12, 0.15)',
+  // Subtle shimmer overlay effect
+  shimmerOverlay: 'linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%)',
 };

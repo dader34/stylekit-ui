@@ -18,7 +18,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../src/components/Tabs'
 const themeDescriptions: Record<ThemeName, string> = {
   cupertino: 'Clean Apple-inspired design with SF Pro aesthetics',
   roseGold: 'Elegant and warm with sophisticated blush tones',
-  glass: 'Ethereal glassmorphism with frosted translucency',
+  glass: 'Warm desert mirage with amber and rose glass',
   brutalist: 'Bold and raw with sharp edges and stark contrasts',
   minimal: 'Ultra-refined with maximum white space',
   retrowave: '80s synthwave with neon colors and chrome',
@@ -119,13 +119,13 @@ function ComponentShowcase() {
           <Input
             label="Error State"
             placeholder="Enter password..."
-            error
+            state="error"
             errorMessage="Password is required"
           />
           <Input
             label="Success State"
             placeholder="Username"
-            success
+            state="success"
             defaultValue="available_user"
           />
           <Input label="Disabled" placeholder="Disabled..." disabled />
@@ -296,7 +296,7 @@ function ComponentShowcase() {
             <Tab value="tab1">Account</Tab>
             <Tab value="tab2">Notifications</Tab>
             <Tab value="tab3">Security</Tab>
-            <Tab value="tab4" disabled>Billing</Tab>
+            <Tab value="tab4">Billing</Tab>
           </TabList>
           <TabPanels>
             <TabPanel value="tab1">

@@ -19,7 +19,11 @@ export type RadioColor = 'primary' | 'success' | 'warning' | 'error';
 export type RadioGroupOrientation = 'horizontal' | 'vertical';
 
 export interface RadioProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size' | 'children'> {
+  /**
+   * Children can be used as label text
+   */
+  children?: ReactNode;
   /**
    * The size of the radio button
    * @default 'md'
@@ -167,6 +171,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
       value,
       checked: checkedProp,
       onChange: onChangeProp,
+      children,
       ...props
     },
     ref
@@ -240,11 +245,11 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           </span>
         </span>
 
-        {(label || description) && (
+        {(label || children || description) && (
           <span className="sk-radio__label-wrapper">
-            {label && (
+            {(label || children) && (
               <span id={labelId} className="sk-radio__label">
-                {label}
+                {label || children}
               </span>
             )}
             {description && (

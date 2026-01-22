@@ -13,7 +13,11 @@ export type CheckboxSize = 'sm' | 'md' | 'lg';
 export type CheckboxColor = 'primary' | 'success' | 'warning' | 'error';
 
 export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'children'> {
+  /**
+   * Children can be used as label text
+   */
+  children?: ReactNode;
   /**
    * The size of the checkbox
    * @default 'md'
@@ -141,6 +145,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       name,
       value,
+      children,
       ...props
     },
     ref
@@ -224,10 +229,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             )}
           </span>
         </span>
-        {(label || description) && (
+        {(label || children || description) && (
           <span className="sk-checkbox-content">
-            {label && (
-              <span className="sk-checkbox-label">{label}</span>
+            {(label || children) && (
+              <span className="sk-checkbox-label">{label || children}</span>
             )}
             {description && (
               <span className="sk-checkbox-description">{description}</span>
