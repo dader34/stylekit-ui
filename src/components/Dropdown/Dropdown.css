@@ -1,0 +1,400 @@
+/* ============================================
+   Dropdown Component Styles
+   StyleKit UI - Works across all 8 themes
+   ============================================ */
+
+/* Container */
+.sk-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Trigger - only styled when using default button */
+.sk-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-spacing-2);
+  padding: var(--sk-spacing-2) var(--sk-spacing-4);
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-sm);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-line-height-normal);
+  color: var(--sk-color-text);
+  background-color: var(--sk-color-surface);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--sk-transition-fast),
+    border-color var(--sk-transition-fast),
+    box-shadow var(--sk-transition-fast);
+}
+
+.sk-dropdown-trigger:hover {
+  background-color: var(--sk-color-surface-hover);
+  border-color: var(--sk-color-border-hover);
+}
+
+.sk-dropdown-trigger:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+.sk-dropdown-trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+.sk-dropdown-trigger:active {
+  background-color: var(--sk-color-surface-active);
+}
+
+/* Menu */
+.sk-dropdown-menu {
+  min-width: 180px;
+  max-width: 320px;
+  padding: var(--sk-spacing-1);
+  background-color: var(--sk-color-background-elevated);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-lg);
+  box-shadow: var(--sk-shadow-lg);
+  z-index: 1000;
+  overflow: hidden;
+
+  /* Animation */
+  animation: sk-dropdown-enter 150ms ease-out;
+  transform-origin: top left;
+}
+
+/* Placement-based transform origins */
+.sk-dropdown-menu--bottom-start {
+  transform-origin: top left;
+}
+
+.sk-dropdown-menu--bottom-end {
+  transform-origin: top right;
+}
+
+.sk-dropdown-menu--top-start {
+  transform-origin: bottom left;
+}
+
+.sk-dropdown-menu--top-end {
+  transform-origin: bottom right;
+}
+
+/* Entry animation */
+@keyframes sk-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Top placement animation adjustment */
+.sk-dropdown-menu--top-start,
+.sk-dropdown-menu--top-end {
+  animation: sk-dropdown-enter-top 150ms ease-out;
+}
+
+@keyframes sk-dropdown-enter-top {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Focus styles */
+.sk-dropdown-menu:focus {
+  outline: none;
+}
+
+/* Item */
+.sk-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-spacing-2);
+  width: 100%;
+  padding: var(--sk-spacing-2) var(--sk-spacing-3);
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-sm);
+  font-weight: var(--sk-font-weight-normal);
+  line-height: var(--sk-line-height-normal);
+  color: var(--sk-color-text);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--sk-radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--sk-transition-fast),
+    color var(--sk-transition-fast);
+  user-select: none;
+}
+
+.sk-dropdown-item:focus {
+  outline: none;
+}
+
+.sk-dropdown-item:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--sk-color-focus);
+}
+
+/* Item states */
+.sk-dropdown-item:hover:not(.sk-dropdown-item--disabled),
+.sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background-color: var(--sk-color-surface-hover);
+}
+
+.sk-dropdown-item:active:not(.sk-dropdown-item--disabled) {
+  background-color: var(--sk-color-surface-active);
+}
+
+/* Disabled item */
+.sk-dropdown-item--disabled {
+  color: var(--sk-color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Destructive item */
+.sk-dropdown-item--destructive {
+  color: var(--sk-color-error);
+}
+
+.sk-dropdown-item--destructive:hover:not(.sk-dropdown-item--disabled),
+.sk-dropdown-item--destructive.sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background-color: var(--sk-color-error-background);
+}
+
+/* Item icon */
+.sk-dropdown-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--sk-color-text-secondary);
+}
+
+.sk-dropdown-item--destructive .sk-dropdown-item-icon {
+  color: var(--sk-color-error);
+}
+
+.sk-dropdown-item--disabled .sk-dropdown-item-icon {
+  color: var(--sk-color-text-muted);
+}
+
+/* Item content */
+.sk-dropdown-item-content {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Divider */
+.sk-dropdown-divider {
+  height: 1px;
+  margin: var(--sk-spacing-1) 0;
+  background-color: var(--sk-color-border);
+}
+
+/* Group */
+.sk-dropdown-group {
+  padding: var(--sk-spacing-1) 0;
+}
+
+.sk-dropdown-group:first-child {
+  padding-top: 0;
+}
+
+.sk-dropdown-group:last-child {
+  padding-bottom: 0;
+}
+
+/* Group label */
+.sk-dropdown-group-label {
+  padding: var(--sk-spacing-1-5) var(--sk-spacing-3);
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-xs);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-line-height-normal);
+  color: var(--sk-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-letter-spacing-wide);
+  user-select: none;
+}
+
+/* ============================================
+   Theme-specific adjustments
+   Applied via [data-sk-theme] attribute
+   ============================================ */
+
+/* Glass theme - enhanced transparency and blur */
+[data-sk-theme="glass"] .sk-dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+[data-sk-theme="glass"] .sk-dropdown-item:hover:not(.sk-dropdown-item--disabled),
+[data-sk-theme="glass"] .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Luxe theme - deeper shadows and gold accents */
+[data-sk-theme="darkLuxe"] .sk-dropdown-menu {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-sk-theme="darkLuxe"] .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Brutalist theme - sharp edges, bold borders */
+[data-sk-theme="brutalist"] .sk-dropdown-menu {
+  border-radius: 0;
+  border-width: 2px;
+  box-shadow: 4px 4px 0 var(--sk-color-text);
+}
+
+[data-sk-theme="brutalist"] .sk-dropdown-item {
+  border-radius: 0;
+}
+
+[data-sk-theme="brutalist"] .sk-dropdown-trigger {
+  border-radius: 0;
+  border-width: 2px;
+}
+
+/* Retrowave theme - neon glows */
+[data-sk-theme="retrowave"] .sk-dropdown-menu {
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    var(--sk-shadow-lg);
+  border-color: rgba(255, 0, 255, 0.5);
+}
+
+[data-sk-theme="retrowave"] .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 255, 0.15),
+    rgba(0, 255, 255, 0.15)
+  );
+}
+
+/* Forest theme - earthy, organic feel */
+[data-sk-theme="forest"] .sk-dropdown-menu {
+  box-shadow:
+    0 4px 12px rgba(34, 51, 34, 0.2),
+    0 8px 24px rgba(34, 51, 34, 0.15);
+}
+
+/* Rose Gold theme - soft gradients */
+[data-sk-theme="roseGold"] .sk-dropdown-menu {
+  background: linear-gradient(
+    180deg,
+    var(--sk-color-background-elevated),
+    rgba(255, 240, 240, 0.5)
+  );
+}
+
+[data-sk-theme="roseGold"] .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+  background-color: rgba(183, 110, 121, 0.1);
+}
+
+/* Minimal theme - subtle and clean */
+[data-sk-theme="minimal"] .sk-dropdown-menu {
+  box-shadow: var(--sk-shadow-md);
+  border-color: var(--sk-color-border);
+}
+
+[data-sk-theme="minimal"] .sk-dropdown-item {
+  border-radius: var(--sk-radius-sm);
+}
+
+/* Cupertino theme - iOS-like appearance */
+[data-sk-theme="cupertino"] .sk-dropdown-menu {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* ============================================
+   Dark mode support (for themes that support it)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  [data-sk-theme="glass"] .sk-dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.85);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  [data-sk-theme="glass"] .sk-dropdown-item:hover:not(.sk-dropdown-item--disabled),
+  [data-sk-theme="glass"] .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  [data-sk-theme="cupertino"] .sk-dropdown-menu {
+    background-color: rgba(40, 40, 42, 0.9);
+  }
+}
+
+/* ============================================
+   Reduced motion support
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-dropdown-menu {
+    animation: none;
+  }
+
+  .sk-dropdown-item {
+    transition: none;
+  }
+
+  .sk-dropdown-trigger {
+    transition: none;
+  }
+}
+
+/* ============================================
+   High contrast mode support
+   ============================================ */
+
+@media (forced-colors: active) {
+  .sk-dropdown-menu {
+    border: 2px solid CanvasText;
+    background-color: Canvas;
+  }
+
+  .sk-dropdown-item--active:not(.sk-dropdown-item--disabled) {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .sk-dropdown-item--disabled {
+    color: GrayText;
+  }
+
+  .sk-dropdown-divider {
+    background-color: CanvasText;
+  }
+}

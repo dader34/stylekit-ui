@@ -1,0 +1,581 @@
+/* ============================================================================
+   StyleKit UI - Select Component Styles
+   Works across all 8 themes using CSS variables
+   ============================================================================ */
+
+/* ============================================================================
+   Wrapper Styles
+   ============================================================================ */
+
+.sk-select-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-1-5, 0.375rem);
+  width: auto;
+}
+
+.sk-select-wrapper--full-width {
+  width: 100%;
+}
+
+/* Size variations for wrapper spacing */
+.sk-select-wrapper--sm {
+  gap: var(--sk-spacing-1, 0.25rem);
+}
+
+.sk-select-wrapper--md {
+  gap: var(--sk-spacing-1-5, 0.375rem);
+}
+
+.sk-select-wrapper--lg {
+  gap: var(--sk-spacing-2, 0.5rem);
+}
+
+/* ============================================================================
+   Label Styles
+   ============================================================================ */
+
+.sk-select-label {
+  display: block;
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-sm, 0.875rem);
+  font-weight: var(--sk-font-weight-medium, 500);
+  line-height: var(--sk-line-height-normal, 1.5);
+  color: var(--sk-color-text);
+  letter-spacing: var(--sk-letter-spacing-normal, 0);
+}
+
+.sk-select-required {
+  color: var(--sk-color-error);
+  margin-left: var(--sk-spacing-0-5, 0.125rem);
+}
+
+/* ============================================================================
+   Container (holds select + chevron)
+   ============================================================================ */
+
+.sk-select-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ============================================================================
+   Base Select Styles
+   ============================================================================ */
+
+.sk-select {
+  /* Reset */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+
+  /* Layout */
+  display: block;
+  width: 100%;
+
+  /* Typography */
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-base, 1rem);
+  font-weight: var(--sk-font-weight-normal, 400);
+  line-height: var(--sk-line-height-normal, 1.5);
+  color: var(--sk-color-text);
+
+  /* Spacing */
+  padding: var(--sk-spacing-2, 0.5rem) var(--sk-spacing-10, 2.5rem) var(--sk-spacing-2, 0.5rem) var(--sk-spacing-3, 0.75rem);
+
+  /* Appearance */
+  background-color: var(--sk-color-surface);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-base, 0.5rem);
+
+  /* Transitions */
+  transition:
+    border-color var(--sk-transition-fast, 150ms ease),
+    background-color var(--sk-transition-fast, 150ms ease),
+    box-shadow var(--sk-transition-fast, 150ms ease);
+
+  /* Cursor */
+  cursor: pointer;
+}
+
+/* Hover state */
+.sk-select:hover:not(:disabled) {
+  border-color: var(--sk-color-border-hover);
+  background-color: var(--sk-color-surface-hover);
+}
+
+/* Focus state */
+.sk-select:focus {
+  outline: none;
+  border-color: var(--sk-color-primary);
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+.sk-select:focus-visible {
+  outline: none;
+  border-color: var(--sk-color-primary);
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+/* Placeholder styling */
+.sk-select--placeholder {
+  color: var(--sk-color-text-muted);
+}
+
+.sk-select-placeholder-option {
+  color: var(--sk-color-text-muted);
+}
+
+/* ============================================================================
+   Variant: Default
+   ============================================================================ */
+
+.sk-select--default {
+  background-color: var(--sk-color-surface);
+  border: 1px solid var(--sk-color-border);
+}
+
+/* ============================================================================
+   Variant: Filled
+   ============================================================================ */
+
+.sk-select--filled {
+  background-color: var(--sk-color-background-alt);
+  border: 1px solid transparent;
+}
+
+.sk-select--filled:hover:not(:disabled) {
+  background-color: var(--sk-color-surface-hover);
+}
+
+.sk-select--filled:focus,
+.sk-select--filled:focus-visible {
+  background-color: var(--sk-color-surface);
+  border-color: var(--sk-color-primary);
+}
+
+/* ============================================================================
+   Variant: Flushed
+   ============================================================================ */
+
+.sk-select--flushed {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--sk-color-border);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: var(--sk-spacing-8, 2rem);
+}
+
+.sk-select--flushed:hover:not(:disabled) {
+  background-color: transparent;
+  border-bottom-color: var(--sk-color-border-hover);
+}
+
+.sk-select--flushed:focus,
+.sk-select--flushed:focus-visible {
+  box-shadow: none;
+  border-bottom-color: var(--sk-color-primary);
+}
+
+/* ============================================================================
+   Sizes
+   ============================================================================ */
+
+/* Small */
+.sk-select--sm {
+  font-size: var(--sk-font-size-sm, 0.875rem);
+  padding: var(--sk-spacing-1-5, 0.375rem) var(--sk-spacing-8, 2rem) var(--sk-spacing-1-5, 0.375rem) var(--sk-spacing-2-5, 0.625rem);
+  border-radius: var(--sk-radius-sm, 0.25rem);
+}
+
+.sk-select--sm.sk-select--flushed {
+  padding-left: 0;
+  padding-right: var(--sk-spacing-6, 1.5rem);
+  border-radius: 0;
+}
+
+/* Medium (default) */
+.sk-select--md {
+  font-size: var(--sk-font-size-base, 1rem);
+  padding: var(--sk-spacing-2, 0.5rem) var(--sk-spacing-10, 2.5rem) var(--sk-spacing-2, 0.5rem) var(--sk-spacing-3, 0.75rem);
+  border-radius: var(--sk-radius-base, 0.5rem);
+}
+
+.sk-select--md.sk-select--flushed {
+  padding-left: 0;
+  padding-right: var(--sk-spacing-8, 2rem);
+  border-radius: 0;
+}
+
+/* Large */
+.sk-select--lg {
+  font-size: var(--sk-font-size-lg, 1.125rem);
+  padding: var(--sk-spacing-3, 0.75rem) var(--sk-spacing-12, 3rem) var(--sk-spacing-3, 0.75rem) var(--sk-spacing-4, 1rem);
+  border-radius: var(--sk-radius-md, 0.75rem);
+}
+
+.sk-select--lg.sk-select--flushed {
+  padding-left: 0;
+  padding-right: var(--sk-spacing-10, 2.5rem);
+  border-radius: 0;
+}
+
+/* ============================================================================
+   Error State
+   ============================================================================ */
+
+.sk-select--error {
+  border-color: var(--sk-color-error);
+  background-color: var(--sk-color-error-background);
+}
+
+.sk-select--error:hover:not(:disabled) {
+  border-color: var(--sk-color-error);
+}
+
+.sk-select--error:focus,
+.sk-select--error:focus-visible {
+  border-color: var(--sk-color-error);
+  box-shadow: 0 0 0 3px rgba(var(--sk-color-error), 0.2);
+}
+
+/* Flushed variant error */
+.sk-select--flushed.sk-select--error {
+  background-color: transparent;
+  border-bottom-color: var(--sk-color-error);
+}
+
+.sk-select--flushed.sk-select--error:focus,
+.sk-select--flushed.sk-select--error:focus-visible {
+  box-shadow: none;
+}
+
+/* ============================================================================
+   Disabled State
+   ============================================================================ */
+
+.sk-select--disabled,
+.sk-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--sk-color-surface-active);
+}
+
+.sk-select--disabled ~ .sk-select-chevron,
+.sk-select:disabled ~ .sk-select-chevron {
+  opacity: 0.5;
+}
+
+/* ============================================================================
+   Chevron Icon
+   ============================================================================ */
+
+.sk-select-chevron {
+  position: absolute;
+  right: var(--sk-spacing-3, 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sk-color-text-muted);
+  transition: color var(--sk-transition-fast, 150ms ease);
+}
+
+.sk-select-chevron-icon {
+  width: 1em;
+  height: 1em;
+}
+
+/* Chevron position by size */
+.sk-select--sm ~ .sk-select-chevron {
+  right: var(--sk-spacing-2, 0.5rem);
+}
+
+.sk-select--md ~ .sk-select-chevron {
+  right: var(--sk-spacing-3, 0.75rem);
+}
+
+.sk-select--lg ~ .sk-select-chevron {
+  right: var(--sk-spacing-4, 1rem);
+}
+
+/* Flushed chevron position */
+.sk-select--flushed ~ .sk-select-chevron {
+  right: 0;
+}
+
+/* Hover chevron color */
+.sk-select:hover:not(:disabled) ~ .sk-select-chevron {
+  color: var(--sk-color-text-secondary);
+}
+
+/* Focus chevron color */
+.sk-select:focus ~ .sk-select-chevron,
+.sk-select:focus-visible ~ .sk-select-chevron {
+  color: var(--sk-color-primary);
+}
+
+/* ============================================================================
+   Helper & Error Text
+   ============================================================================ */
+
+.sk-select-helper,
+.sk-select-error {
+  display: block;
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-xs, 0.75rem);
+  line-height: var(--sk-line-height-normal, 1.5);
+  margin-top: var(--sk-spacing-1, 0.25rem);
+}
+
+.sk-select-helper {
+  color: var(--sk-color-text-muted);
+}
+
+.sk-select-error {
+  color: var(--sk-color-error);
+}
+
+/* ============================================================================
+   Option Styles (limited browser support)
+   ============================================================================ */
+
+.sk-select-option {
+  font-family: var(--sk-font-family);
+  background-color: var(--sk-color-surface);
+  color: var(--sk-color-text);
+}
+
+.sk-select-option:disabled {
+  color: var(--sk-color-text-muted);
+}
+
+.sk-select-optgroup {
+  font-family: var(--sk-font-family);
+  font-weight: var(--sk-font-weight-semibold, 600);
+  background-color: var(--sk-color-background-alt);
+  color: var(--sk-color-text-secondary);
+}
+
+/* ============================================================================
+   Theme-Specific Overrides
+   ============================================================================ */
+
+/* --------------------------------------------------------------------------
+   Brutalist Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='brutalist'] .sk-select {
+  border-width: 2px;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 0 var(--sk-color-text);
+}
+
+[data-sk-theme='brutalist'] .sk-select:focus,
+[data-sk-theme='brutalist'] .sk-select:focus-visible {
+  box-shadow: 6px 6px 0 0 var(--sk-color-primary);
+}
+
+[data-sk-theme='brutalist'] .sk-select--flushed {
+  box-shadow: none;
+  border-width: 0;
+  border-bottom-width: 3px;
+}
+
+[data-sk-theme='brutalist'] .sk-select--flushed:focus,
+[data-sk-theme='brutalist'] .sk-select--flushed:focus-visible {
+  box-shadow: none;
+}
+
+[data-sk-theme='brutalist'] .sk-select--sm {
+  border-radius: 0;
+}
+
+[data-sk-theme='brutalist'] .sk-select--md {
+  border-radius: 0;
+}
+
+[data-sk-theme='brutalist'] .sk-select--lg {
+  border-radius: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Glass Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='glass'] .sk-select {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme='glass'] .sk-select:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-sk-theme='glass'] .sk-select:focus,
+[data-sk-theme='glass'] .sk-select:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme='glass'] .sk-select--filled {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-sk-theme='glass'] .sk-select--flushed {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-sk-theme='glass'] .sk-select-chevron {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-sk-theme='glass'] .sk-select-label,
+[data-sk-theme='glass'] .sk-select-helper {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* --------------------------------------------------------------------------
+   Retrowave Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='retrowave'] .sk-select {
+  border-width: 2px;
+  box-shadow:
+    0 0 10px rgba(255, 0, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+[data-sk-theme='retrowave'] .sk-select:focus,
+[data-sk-theme='retrowave'] .sk-select:focus-visible {
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+[data-sk-theme='retrowave'] .sk-select--flushed {
+  box-shadow: none;
+  border-bottom-width: 2px;
+}
+
+[data-sk-theme='retrowave'] .sk-select--flushed:focus,
+[data-sk-theme='retrowave'] .sk-select--flushed:focus-visible {
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Dark Luxe Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='darkLuxe'] .sk-select {
+  border-color: rgba(212, 175, 55, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+[data-sk-theme='darkLuxe'] .sk-select:hover:not(:disabled) {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+[data-sk-theme='darkLuxe'] .sk-select:focus,
+[data-sk-theme='darkLuxe'] .sk-select:focus-visible {
+  border-color: var(--sk-color-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+[data-sk-theme='darkLuxe'] .sk-select--filled {
+  background: rgba(212, 175, 55, 0.05);
+}
+
+[data-sk-theme='darkLuxe'] .sk-select-chevron {
+  color: var(--sk-color-primary);
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   Forest Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='forest'] .sk-select {
+  border-color: rgba(76, 121, 87, 0.4);
+}
+
+[data-sk-theme='forest'] .sk-select:hover:not(:disabled) {
+  border-color: rgba(76, 121, 87, 0.6);
+  background-color: rgba(76, 121, 87, 0.05);
+}
+
+[data-sk-theme='forest'] .sk-select:focus,
+[data-sk-theme='forest'] .sk-select:focus-visible {
+  border-color: var(--sk-color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 121, 87, 0.2);
+}
+
+[data-sk-theme='forest'] .sk-select--filled {
+  background-color: rgba(76, 121, 87, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Rose Gold Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='roseGold'] .sk-select {
+  border-color: rgba(183, 110, 121, 0.3);
+}
+
+[data-sk-theme='roseGold'] .sk-select:hover:not(:disabled) {
+  border-color: rgba(183, 110, 121, 0.5);
+}
+
+[data-sk-theme='roseGold'] .sk-select:focus,
+[data-sk-theme='roseGold'] .sk-select:focus-visible {
+  border-color: var(--sk-color-primary);
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.15);
+}
+
+[data-sk-theme='roseGold'] .sk-select--filled {
+  background-color: rgba(183, 110, 121, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   Minimal Theme
+   -------------------------------------------------------------------------- */
+[data-sk-theme='minimal'] .sk-select {
+  border-color: var(--sk-color-border);
+  background-color: transparent;
+}
+
+[data-sk-theme='minimal'] .sk-select:hover:not(:disabled) {
+  border-color: var(--sk-color-text);
+}
+
+[data-sk-theme='minimal'] .sk-select:focus,
+[data-sk-theme='minimal'] .sk-select:focus-visible {
+  border-color: var(--sk-color-text);
+  box-shadow: none;
+}
+
+[data-sk-theme='minimal'] .sk-select--filled {
+  background-color: var(--sk-color-background-alt);
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .sk-select,
+  .sk-select-chevron {
+    transition: none;
+  }
+}

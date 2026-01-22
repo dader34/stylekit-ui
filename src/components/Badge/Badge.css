@@ -1,0 +1,243 @@
+/* Badge Component Styles */
+/* Works with @stylekit/ui theme system across all 8 themes */
+
+.sk-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-spacing-1);
+  font-family: var(--sk-font-family);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-line-height-tight);
+  letter-spacing: var(--sk-letter-spacing-normal);
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: var(--sk-radius-full);
+  transition: var(--sk-transition-fast);
+  transition-property: background-color, color, border-color, box-shadow;
+}
+
+/* ==================== Sizes ==================== */
+
+.sk-badge--sm {
+  font-size: var(--sk-font-size-xs);
+  padding: var(--sk-spacing-0-5) var(--sk-spacing-2);
+  min-height: 1.25rem;
+}
+
+.sk-badge--md {
+  font-size: var(--sk-font-size-sm);
+  padding: var(--sk-spacing-1) var(--sk-spacing-2-5);
+  min-height: 1.5rem;
+}
+
+.sk-badge--lg {
+  font-size: var(--sk-font-size-base);
+  padding: var(--sk-spacing-1-5) var(--sk-spacing-3);
+  min-height: 1.875rem;
+}
+
+/* ==================== Dot Indicator ==================== */
+
+.sk-badge__dot {
+  flex-shrink: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: var(--sk-radius-full);
+  background-color: currentColor;
+}
+
+/* ==================== Icon ==================== */
+
+.sk-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+.sk-badge__icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== Content ==================== */
+
+.sk-badge__content {
+  display: inline-block;
+}
+
+/* ==================== Solid Variant ==================== */
+
+/* Default (neutral) */
+.sk-badge--solid.sk-badge--default {
+  background-color: var(--sk-color-text-muted);
+  color: var(--sk-color-background);
+}
+
+/* Primary */
+.sk-badge--solid.sk-badge--primary {
+  background-color: var(--sk-color-primary);
+  color: var(--sk-color-text-on-primary);
+}
+
+/* Success */
+.sk-badge--solid.sk-badge--success {
+  background-color: var(--sk-color-success);
+  color: var(--sk-color-background);
+}
+
+/* Warning */
+.sk-badge--solid.sk-badge--warning {
+  background-color: var(--sk-color-warning);
+  color: var(--sk-color-text);
+}
+
+/* Error */
+.sk-badge--solid.sk-badge--error {
+  background-color: var(--sk-color-error);
+  color: var(--sk-color-background);
+}
+
+/* Info */
+.sk-badge--solid.sk-badge--info {
+  background-color: var(--sk-color-info);
+  color: var(--sk-color-background);
+}
+
+/* ==================== Subtle Variant ==================== */
+
+/* Default (neutral) */
+.sk-badge--subtle.sk-badge--default {
+  background-color: var(--sk-color-surface-hover);
+  color: var(--sk-color-text-secondary);
+}
+
+/* Primary */
+.sk-badge--subtle.sk-badge--primary {
+  background-color: color-mix(in srgb, var(--sk-color-primary) 15%, transparent);
+  color: var(--sk-color-primary);
+}
+
+/* Success */
+.sk-badge--subtle.sk-badge--success {
+  background-color: var(--sk-color-success-background);
+  color: var(--sk-color-success);
+}
+
+/* Warning */
+.sk-badge--subtle.sk-badge--warning {
+  background-color: var(--sk-color-warning-background);
+  color: var(--sk-color-warning);
+}
+
+/* Error */
+.sk-badge--subtle.sk-badge--error {
+  background-color: var(--sk-color-error-background);
+  color: var(--sk-color-error);
+}
+
+/* Info */
+.sk-badge--subtle.sk-badge--info {
+  background-color: var(--sk-color-info-background);
+  color: var(--sk-color-info);
+}
+
+/* ==================== Outline Variant ==================== */
+
+/* Default (neutral) */
+.sk-badge--outline.sk-badge--default {
+  background-color: transparent;
+  color: var(--sk-color-text-secondary);
+  box-shadow: inset 0 0 0 1px var(--sk-color-border);
+}
+
+/* Primary */
+.sk-badge--outline.sk-badge--primary {
+  background-color: transparent;
+  color: var(--sk-color-primary);
+  box-shadow: inset 0 0 0 1px var(--sk-color-primary);
+}
+
+/* Success */
+.sk-badge--outline.sk-badge--success {
+  background-color: transparent;
+  color: var(--sk-color-success);
+  box-shadow: inset 0 0 0 1px var(--sk-color-success);
+}
+
+/* Warning */
+.sk-badge--outline.sk-badge--warning {
+  background-color: transparent;
+  color: var(--sk-color-warning);
+  box-shadow: inset 0 0 0 1px var(--sk-color-warning);
+}
+
+/* Error */
+.sk-badge--outline.sk-badge--error {
+  background-color: transparent;
+  color: var(--sk-color-error);
+  box-shadow: inset 0 0 0 1px var(--sk-color-error);
+}
+
+/* Info */
+.sk-badge--outline.sk-badge--info {
+  background-color: transparent;
+  color: var(--sk-color-info);
+  box-shadow: inset 0 0 0 1px var(--sk-color-info);
+}
+
+/* ==================== Theme-specific Enhancements ==================== */
+
+/* Glass theme - add subtle backdrop blur for solid badges */
+[data-sk-theme="glass"] .sk-badge--solid {
+  backdrop-filter: blur(8px);
+}
+
+[data-sk-theme="glass"] .sk-badge--subtle {
+  backdrop-filter: blur(4px);
+}
+
+/* Brutalist theme - sharper edges */
+[data-sk-theme="brutalist"] .sk-badge {
+  border-radius: var(--sk-radius-none);
+  font-weight: var(--sk-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-letter-spacing-wide);
+}
+
+[data-sk-theme="brutalist"] .sk-badge--outline {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+/* Retrowave theme - add glow effects */
+[data-sk-theme="retrowave"] .sk-badge--solid {
+  box-shadow: 0 0 10px currentColor;
+}
+
+[data-sk-theme="retrowave"] .sk-badge--outline {
+  box-shadow: inset 0 0 0 1px currentColor, 0 0 8px currentColor;
+}
+
+/* Dark Luxe theme - refined elegance */
+[data-sk-theme="darkLuxe"] .sk-badge {
+  font-weight: var(--sk-font-weight-normal);
+  letter-spacing: var(--sk-letter-spacing-wide);
+}
+
+/* Minimal theme - even more subtle */
+[data-sk-theme="minimal"] .sk-badge--subtle {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+/* Forest theme - organic rounded shapes */
+[data-sk-theme="forest"] .sk-badge {
+  border-radius: var(--sk-radius-lg);
+}
+
+/* Rose Gold theme - elegant styling */
+[data-sk-theme="roseGold"] .sk-badge--solid {
+  box-shadow: var(--sk-shadow-sm);
+}

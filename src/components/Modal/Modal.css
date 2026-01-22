@@ -1,0 +1,571 @@
+/**
+ * Modal Component Styles
+ *
+ * Uses CSS variables from the @stylekit/ui theme system.
+ * Compatible with all 8 themes: cupertino, roseGold, glass, brutalist,
+ * minimal, retrowave, darkLuxe, and forest.
+ */
+
+/* ============================================================================
+   Base Modal Container
+   ============================================================================ */
+
+.sk-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sk-spacing-4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--sk-transition-base);
+}
+
+.sk-modal--open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.sk-modal--closed {
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ============================================================================
+   Modal Overlay (Backdrop)
+   ============================================================================ */
+
+.sk-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--sk-color-background-overlay);
+  opacity: 0;
+  transition: opacity var(--sk-transition-base);
+}
+
+.sk-modal-overlay--visible {
+  opacity: 1;
+}
+
+.sk-modal-overlay--blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Theme-specific overlay enhancements */
+[data-sk-theme="glass"] .sk-modal-overlay {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+[data-sk-theme="glass"] .sk-modal-overlay--blur {
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+}
+
+[data-sk-theme="retrowave"] .sk-modal-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 2, 33, 0.95) 0%,
+    rgba(26, 8, 64, 0.9) 100%
+  );
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 12, 0.95) 0%,
+    rgba(18, 18, 22, 0.9) 100%
+  );
+}
+
+/* ============================================================================
+   Modal Content (Dialog Box)
+   ============================================================================ */
+
+.sk-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - var(--sk-spacing-8));
+  background-color: var(--sk-color-background-elevated);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-lg);
+  box-shadow: var(--sk-shadow-xl);
+  outline: none;
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+  transition:
+    transform var(--sk-transition-base),
+    opacity var(--sk-transition-base);
+}
+
+.sk-modal-content--visible {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Size Variants */
+.sk-modal-content--sm {
+  width: 100%;
+  max-width: 24rem; /* 384px */
+}
+
+.sk-modal-content--md {
+  width: 100%;
+  max-width: 32rem; /* 512px */
+}
+
+.sk-modal-content--lg {
+  width: 100%;
+  max-width: 48rem; /* 768px */
+}
+
+.sk-modal-content--xl {
+  width: 100%;
+  max-width: 64rem; /* 1024px */
+}
+
+.sk-modal-content--full {
+  width: calc(100vw - var(--sk-spacing-8));
+  max-width: none;
+  height: calc(100vh - var(--sk-spacing-8));
+  max-height: none;
+  border-radius: var(--sk-radius-md);
+}
+
+/* Theme-specific content styles */
+[data-sk-theme="glass"] .sk-modal-content {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="brutalist"] .sk-modal-content {
+  border-width: 3px;
+  border-radius: 0;
+  box-shadow:
+    6px 6px 0 var(--sk-color-text),
+    inset 0 0 0 1px var(--sk-color-border);
+}
+
+[data-sk-theme="retrowave"] .sk-modal-content {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 8, 64, 0.95) 0%,
+    rgba(13, 2, 33, 0.98) 100%
+  );
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  box-shadow:
+    0 0 40px rgba(255, 0, 255, 0.3),
+    0 0 80px rgba(0, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-content {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 30, 0.98) 0%,
+    rgba(18, 18, 22, 0.99) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+[data-sk-theme="forest"] .sk-modal-content {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 40, 34, 0.98) 0%,
+    rgba(26, 32, 26, 0.99) 100%
+  );
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 1px rgba(76, 175, 80, 0.2);
+}
+
+[data-sk-theme="minimal"] .sk-modal-content {
+  border: 1px solid var(--sk-color-border);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+[data-sk-theme="cupertino"] .sk-modal-content {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+[data-sk-theme="roseGold"] .sk-modal-content {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 248, 245, 0.99) 100%
+  );
+  border: 1px solid rgba(183, 110, 121, 0.15);
+  box-shadow:
+    0 20px 50px rgba(183, 110, 121, 0.12),
+    0 0 1px rgba(183, 110, 121, 0.2);
+}
+
+/* ============================================================================
+   Modal Header
+   ============================================================================ */
+
+.sk-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: var(--sk-spacing-5) var(--sk-spacing-6);
+  border-bottom: 1px solid var(--sk-color-border);
+}
+
+.sk-modal-title {
+  margin: 0;
+  font-family: var(--sk-font-family-display);
+  font-size: var(--sk-font-size-lg);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-line-height-tight);
+  letter-spacing: var(--sk-letter-spacing-tight);
+  color: var(--sk-color-text);
+}
+
+/* Theme-specific header styles */
+[data-sk-theme="glass"] .sk-modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="brutalist"] .sk-modal-header {
+  border-bottom-width: 2px;
+  text-transform: uppercase;
+}
+
+[data-sk-theme="retrowave"] .sk-modal-header {
+  border-bottom-color: rgba(255, 0, 255, 0.3);
+}
+
+[data-sk-theme="retrowave"] .sk-modal-title {
+  background: linear-gradient(135deg, #FF00FF, #00FFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: var(--sk-letter-spacing-wide);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-header {
+  border-bottom-color: rgba(212, 175, 55, 0.15);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-title {
+  color: var(--sk-color-accent);
+}
+
+/* ============================================================================
+   Modal Body
+   ============================================================================ */
+
+.sk-modal-body {
+  flex: 1 1 auto;
+  padding: var(--sk-spacing-6);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-base);
+  line-height: var(--sk-line-height-normal);
+  color: var(--sk-color-text-secondary);
+}
+
+/* Custom scrollbar styling */
+.sk-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sk-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sk-modal-body::-webkit-scrollbar-thumb {
+  background-color: var(--sk-color-border);
+  border-radius: var(--sk-radius-full);
+}
+
+.sk-modal-body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sk-color-border-hover);
+}
+
+/* Theme-specific scrollbar */
+[data-sk-theme="retrowave"] .sk-modal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF00FF, #00FFFF);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================================================
+   Modal Footer
+   ============================================================================ */
+
+.sk-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  gap: var(--sk-spacing-3);
+  padding: var(--sk-spacing-4) var(--sk-spacing-6);
+  border-top: 1px solid var(--sk-color-border);
+}
+
+/* Theme-specific footer styles */
+[data-sk-theme="glass"] .sk-modal-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="brutalist"] .sk-modal-footer {
+  border-top-width: 2px;
+}
+
+[data-sk-theme="retrowave"] .sk-modal-footer {
+  border-top-color: rgba(255, 0, 255, 0.3);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-footer {
+  border-top-color: rgba(212, 175, 55, 0.15);
+}
+
+/* ============================================================================
+   Close Button
+   ============================================================================ */
+
+.sk-modal-close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: calc(var(--sk-spacing-1) * -1);
+  background: transparent;
+  border: none;
+  border-radius: var(--sk-radius-md);
+  color: var(--sk-color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--sk-transition-fast),
+    color var(--sk-transition-fast),
+    transform var(--sk-transition-fast);
+}
+
+.sk-modal-close-button:hover {
+  background-color: var(--sk-color-surface-hover);
+  color: var(--sk-color-text);
+}
+
+.sk-modal-close-button:focus-visible {
+  outline: 2px solid var(--sk-color-focus);
+  outline-offset: 2px;
+}
+
+.sk-modal-close-button:active {
+  transform: scale(0.95);
+}
+
+/* Theme-specific close button */
+[data-sk-theme="brutalist"] .sk-modal-close-button {
+  border-radius: 0;
+  border: 2px solid transparent;
+}
+
+[data-sk-theme="brutalist"] .sk-modal-close-button:hover {
+  border-color: var(--sk-color-text);
+}
+
+[data-sk-theme="retrowave"] .sk-modal-close-button:hover {
+  background: rgba(255, 0, 255, 0.2);
+  color: #FF00FF;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+
+[data-sk-theme="glass"] .sk-modal-close-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-sk-theme="darkLuxe"] .sk-modal-close-button:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--sk-color-accent);
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes sk-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sk-modal-slide-up {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes sk-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sk-modal-slide-down {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+}
+
+/* Apply animations for smooth open/close */
+.sk-modal--open .sk-modal-overlay {
+  animation: sk-modal-fade-in var(--sk-transition-base) forwards;
+}
+
+.sk-modal--open .sk-modal-content {
+  animation: sk-modal-slide-up var(--sk-transition-slow) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sk-modal--closed .sk-modal-overlay {
+  animation: sk-modal-fade-out var(--sk-transition-base) forwards;
+}
+
+.sk-modal--closed .sk-modal-content {
+  animation: sk-modal-slide-down var(--sk-transition-base) forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .sk-modal,
+  .sk-modal-overlay,
+  .sk-modal-content,
+  .sk-modal-close-button {
+    transition: none;
+    animation: none;
+  }
+
+  .sk-modal--open .sk-modal-overlay,
+  .sk-modal--open .sk-modal-content {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .sk-modal--closed .sk-modal-overlay,
+  .sk-modal--closed .sk-modal-content {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ============================================================================
+   Responsive Adjustments
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .sk-modal {
+    padding: var(--sk-spacing-3);
+  }
+
+  .sk-modal-content--sm,
+  .sk-modal-content--md,
+  .sk-modal-content--lg,
+  .sk-modal-content--xl {
+    max-width: none;
+    width: 100%;
+  }
+
+  .sk-modal-content--full {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .sk-modal-header,
+  .sk-modal-body,
+  .sk-modal-footer {
+    padding-left: var(--sk-spacing-4);
+    padding-right: var(--sk-spacing-4);
+  }
+
+  .sk-modal-title {
+    font-size: var(--sk-font-size-base);
+  }
+}
+
+/* ============================================================================
+   Focus Visible Polyfill Support
+   ============================================================================ */
+
+.sk-modal-content:focus {
+  outline: none;
+}
+
+.sk-modal-content:focus-visible {
+  outline: 2px solid var(--sk-color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+  .sk-modal {
+    position: static;
+    padding: 0;
+  }
+
+  .sk-modal-overlay {
+    display: none;
+  }
+
+  .sk-modal-content {
+    max-width: none;
+    max-height: none;
+    box-shadow: none;
+    border: 1px solid #000;
+    transform: none;
+    opacity: 1;
+  }
+
+  .sk-modal-close-button {
+    display: none;
+  }
+}

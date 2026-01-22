@@ -1,0 +1,383 @@
+/**
+ * Tooltip Component Styles
+ *
+ * Uses CSS variables from the theme system for consistent styling
+ * across all 8 StyleKit themes (cupertino, roseGold, glass, brutalist,
+ * minimal, retrowave, darkLuxe, forest).
+ */
+
+/* ============================================
+   Base Tooltip Styles
+   ============================================ */
+
+.sk-tooltip {
+  /* Layout */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+
+  /* Pointer events to allow hovering over tooltip */
+  pointer-events: none;
+}
+
+.sk-tooltip-content {
+  /* Layout */
+  padding: var(--sk-spacing-2, 0.5rem) var(--sk-spacing-3, 0.75rem);
+
+  /* Typography */
+  font-family: var(--sk-font-family, system-ui, sans-serif);
+  font-size: var(--sk-font-size-sm, 0.8125rem);
+  font-weight: var(--sk-font-weight-normal, 400);
+  line-height: var(--sk-line-height-normal, 1.47);
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+
+  /* Colors */
+  color: var(--sk-color-text-on-primary, #ffffff);
+  background-color: var(--sk-color-text, #1d1d1f);
+
+  /* Border */
+  border-radius: var(--sk-radius-md, 0.75rem);
+
+  /* Shadow */
+  box-shadow: var(--sk-shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* ============================================
+   Arrow Styles
+   ============================================ */
+
+.sk-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+}
+
+/* Top placement - arrow at bottom */
+.sk-tooltip--top .sk-tooltip-arrow {
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: var(--sk-color-text, #1d1d1f);
+  border-bottom: none;
+}
+
+/* Bottom placement - arrow at top */
+.sk-tooltip--bottom .sk-tooltip-arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: var(--sk-color-text, #1d1d1f);
+  border-top: none;
+}
+
+/* Left placement - arrow at right */
+.sk-tooltip--left .sk-tooltip-arrow {
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: var(--sk-color-text, #1d1d1f);
+  border-right: none;
+}
+
+/* Right placement - arrow at left */
+.sk-tooltip--right .sk-tooltip-arrow {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: var(--sk-color-text, #1d1d1f);
+  border-left: none;
+}
+
+/* ============================================
+   Animation: Fade
+   ============================================ */
+
+.sk-tooltip--fade {
+  opacity: 0;
+  transition: opacity var(--sk-transition-fast, 100ms cubic-bezier(0.25, 0.1, 0.25, 1));
+}
+
+.sk-tooltip--fade.sk-tooltip--open {
+  opacity: 1;
+}
+
+.sk-tooltip--fade.sk-tooltip--closing {
+  opacity: 0;
+}
+
+/* ============================================
+   Animation: Scale
+   ============================================ */
+
+.sk-tooltip--scale {
+  opacity: 0;
+  transform-origin: center;
+  transition:
+    opacity var(--sk-transition-fast, 100ms cubic-bezier(0.25, 0.1, 0.25, 1)),
+    transform var(--sk-transition-fast, 100ms cubic-bezier(0.25, 0.1, 0.25, 1));
+}
+
+.sk-tooltip--scale.sk-tooltip--top {
+  transform: scale(0.9) translateY(4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--bottom {
+  transform: scale(0.9) translateY(-4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--left {
+  transform: scale(0.9) translateX(4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--right {
+  transform: scale(0.9) translateX(-4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--open {
+  opacity: 1;
+  transform: scale(1) translate(0);
+}
+
+.sk-tooltip--scale.sk-tooltip--closing {
+  opacity: 0;
+}
+
+.sk-tooltip--scale.sk-tooltip--closing.sk-tooltip--top {
+  transform: scale(0.9) translateY(4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--closing.sk-tooltip--bottom {
+  transform: scale(0.9) translateY(-4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--closing.sk-tooltip--left {
+  transform: scale(0.9) translateX(4px);
+}
+
+.sk-tooltip--scale.sk-tooltip--closing.sk-tooltip--right {
+  transform: scale(0.9) translateX(-4px);
+}
+
+/* ============================================
+   Theme-Specific Overrides
+   ============================================ */
+
+/* Glass Theme */
+[data-sk-theme="glass"] .sk-tooltip-content {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--sk-color-text, #ffffff);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+[data-sk-theme="glass"] .sk-tooltip-arrow {
+  display: none;
+}
+
+/* Brutalist Theme */
+[data-sk-theme="brutalist"] .sk-tooltip-content {
+  background-color: var(--sk-color-text, #000000);
+  border: 3px solid var(--sk-color-text, #000000);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 var(--sk-color-text, #000000);
+  font-weight: var(--sk-font-weight-bold, 700);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-letter-spacing-wide, 0.02em);
+}
+
+[data-sk-theme="brutalist"] .sk-tooltip-arrow {
+  display: none;
+}
+
+/* Minimal Theme */
+[data-sk-theme="minimal"] .sk-tooltip-content {
+  background-color: var(--sk-color-text, #1a1a1a);
+  border-radius: var(--sk-radius-sm, 0.25rem);
+  box-shadow: var(--sk-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+  font-weight: var(--sk-font-weight-normal, 400);
+}
+
+/* Retrowave Theme */
+[data-sk-theme="retrowave"] .sk-tooltip-content {
+  background: linear-gradient(
+    135deg,
+    var(--sk-color-primary, #ff00ff) 0%,
+    var(--sk-color-secondary, #00ffff) 100%
+  );
+  border: 2px solid var(--sk-color-accent, #ff00ff);
+  border-radius: var(--sk-radius-base, 0.5rem);
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.3);
+  font-family: var(--sk-font-family-display, monospace);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+[data-sk-theme="retrowave"] .sk-tooltip--top .sk-tooltip-arrow {
+  border-top-color: var(--sk-color-secondary, #00ffff);
+}
+
+[data-sk-theme="retrowave"] .sk-tooltip--bottom .sk-tooltip-arrow {
+  border-bottom-color: var(--sk-color-primary, #ff00ff);
+}
+
+[data-sk-theme="retrowave"] .sk-tooltip--left .sk-tooltip-arrow {
+  border-left-color: var(--sk-color-secondary, #00ffff);
+}
+
+[data-sk-theme="retrowave"] .sk-tooltip--right .sk-tooltip-arrow {
+  border-right-color: var(--sk-color-primary, #ff00ff);
+}
+
+/* Dark Luxe Theme */
+[data-sk-theme="darkLuxe"] .sk-tooltip-content {
+  background: linear-gradient(
+    135deg,
+    var(--sk-color-surface, #1a1a2e) 0%,
+    var(--sk-color-background-alt, #16213e) 100%
+  );
+  border: 1px solid var(--sk-color-accent, #c9a227);
+  border-radius: var(--sk-radius-md, 0.75rem);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(201, 162, 39, 0.2);
+  color: var(--sk-color-text, #f5f5f5);
+}
+
+[data-sk-theme="darkLuxe"] .sk-tooltip-arrow {
+  filter: drop-shadow(0 0 2px var(--sk-color-accent, #c9a227));
+}
+
+[data-sk-theme="darkLuxe"] .sk-tooltip--top .sk-tooltip-arrow {
+  border-top-color: var(--sk-color-surface, #1a1a2e);
+}
+
+[data-sk-theme="darkLuxe"] .sk-tooltip--bottom .sk-tooltip-arrow {
+  border-bottom-color: var(--sk-color-surface, #1a1a2e);
+}
+
+[data-sk-theme="darkLuxe"] .sk-tooltip--left .sk-tooltip-arrow {
+  border-left-color: var(--sk-color-surface, #1a1a2e);
+}
+
+[data-sk-theme="darkLuxe"] .sk-tooltip--right .sk-tooltip-arrow {
+  border-right-color: var(--sk-color-surface, #1a1a2e);
+}
+
+/* Forest Theme */
+[data-sk-theme="forest"] .sk-tooltip-content {
+  background: linear-gradient(
+    135deg,
+    var(--sk-color-surface, #1a2f1a) 0%,
+    var(--sk-color-background-alt, #0d1f0d) 100%
+  );
+  border: 1px solid var(--sk-color-primary, #4a7c4a);
+  border-radius: var(--sk-radius-lg, 1rem);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(74, 124, 74, 0.3);
+  color: var(--sk-color-text, #e8f0e8);
+}
+
+[data-sk-theme="forest"] .sk-tooltip--top .sk-tooltip-arrow {
+  border-top-color: var(--sk-color-surface, #1a2f1a);
+}
+
+[data-sk-theme="forest"] .sk-tooltip--bottom .sk-tooltip-arrow {
+  border-bottom-color: var(--sk-color-background-alt, #0d1f0d);
+}
+
+[data-sk-theme="forest"] .sk-tooltip--left .sk-tooltip-arrow {
+  border-left-color: var(--sk-color-surface, #1a2f1a);
+}
+
+[data-sk-theme="forest"] .sk-tooltip--right .sk-tooltip-arrow {
+  border-right-color: var(--sk-color-surface, #1a2f1a);
+}
+
+/* Rose Gold Theme */
+[data-sk-theme="roseGold"] .sk-tooltip-content {
+  background: linear-gradient(
+    135deg,
+    var(--sk-color-primary, #b76e79) 0%,
+    var(--sk-color-primary-hover, #a35d68) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--sk-radius-lg, 1rem);
+  box-shadow:
+    0 8px 24px rgba(183, 110, 121, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+[data-sk-theme="roseGold"] .sk-tooltip--top .sk-tooltip-arrow {
+  border-top-color: var(--sk-color-primary, #b76e79);
+}
+
+[data-sk-theme="roseGold"] .sk-tooltip--bottom .sk-tooltip-arrow {
+  border-bottom-color: var(--sk-color-primary-hover, #a35d68);
+}
+
+[data-sk-theme="roseGold"] .sk-tooltip--left .sk-tooltip-arrow {
+  border-left-color: var(--sk-color-primary, #b76e79);
+}
+
+[data-sk-theme="roseGold"] .sk-tooltip--right .sk-tooltip-arrow {
+  border-right-color: var(--sk-color-primary, #b76e79);
+}
+
+/* Cupertino Theme (Default - Clean Apple Style) */
+[data-sk-theme="cupertino"] .sk-tooltip-content {
+  background-color: rgba(29, 29, 31, 0.95);
+  border-radius: var(--sk-radius-md, 0.75rem);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 1px 4px rgba(0, 0, 0, 0.08);
+  color: #ffffff;
+}
+
+[data-sk-theme="cupertino"] .sk-tooltip--top .sk-tooltip-arrow {
+  border-top-color: rgba(29, 29, 31, 0.95);
+}
+
+[data-sk-theme="cupertino"] .sk-tooltip--bottom .sk-tooltip-arrow {
+  border-bottom-color: rgba(29, 29, 31, 0.95);
+}
+
+[data-sk-theme="cupertino"] .sk-tooltip--left .sk-tooltip-arrow {
+  border-left-color: rgba(29, 29, 31, 0.95);
+}
+
+[data-sk-theme="cupertino"] .sk-tooltip--right .sk-tooltip-arrow {
+  border-right-color: rgba(29, 29, 31, 0.95);
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-tooltip--fade,
+  .sk-tooltip--scale {
+    transition: none;
+  }
+
+  .sk-tooltip--scale.sk-tooltip--top,
+  .sk-tooltip--scale.sk-tooltip--bottom,
+  .sk-tooltip--scale.sk-tooltip--left,
+  .sk-tooltip--scale.sk-tooltip--right {
+    transform: none;
+  }
+}

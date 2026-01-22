@@ -1,0 +1,484 @@
+/**
+ * Tabs Component Styles
+ *
+ * Uses CSS variables from the StyleKit theme system (--sk-*).
+ * Works seamlessly across all 8 themes: cupertino, roseGold, glass,
+ * brutalist, minimal, retrowave, darkLuxe, and forest.
+ */
+
+/* ============================================================================
+   Base Tabs Container
+   ============================================================================ */
+
+.sk-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: var(--sk-font-family);
+}
+
+.sk-tabs--vertical {
+  flex-direction: row;
+}
+
+/* ============================================================================
+   TabList
+   ============================================================================ */
+
+.sk-tab-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sk-spacing-1);
+}
+
+/* Horizontal orientation */
+.sk-tabs--horizontal .sk-tab-list {
+  flex-direction: row;
+  border-bottom: 1px solid var(--sk-color-border);
+}
+
+/* Vertical orientation */
+.sk-tabs--vertical .sk-tab-list {
+  flex-direction: column;
+  border-right: 1px solid var(--sk-color-border);
+  align-items: stretch;
+}
+
+/* Fitted tabs */
+.sk-tabs--fitted .sk-tab-list {
+  width: 100%;
+}
+
+.sk-tabs--fitted .sk-tab {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ============================================================================
+   Tab Button - Base
+   ============================================================================ */
+
+.sk-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-spacing-2);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--sk-font-family);
+  font-weight: var(--sk-font-weight-medium);
+  letter-spacing: var(--sk-letter-spacing-normal);
+  color: var(--sk-color-text-muted);
+  white-space: nowrap;
+  transition:
+    color var(--sk-transition-fast),
+    background-color var(--sk-transition-fast),
+    border-color var(--sk-transition-fast),
+    box-shadow var(--sk-transition-fast);
+  outline: none;
+  user-select: none;
+}
+
+.sk-tab:hover:not(.sk-tab--disabled) {
+  color: var(--sk-color-text);
+}
+
+.sk-tab:focus-visible {
+  box-shadow: 0 0 0 2px var(--sk-color-focus);
+  z-index: 1;
+}
+
+.sk-tab--selected {
+  color: var(--sk-color-primary);
+}
+
+.sk-tab--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   Tab Sizes
+   ============================================================================ */
+
+/* Small */
+.sk-tab--sm {
+  padding: var(--sk-spacing-1-5) var(--sk-spacing-3);
+  font-size: var(--sk-font-size-sm);
+  min-height: 32px;
+}
+
+.sk-tab--sm .sk-tab-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Medium (default) */
+.sk-tab--md {
+  padding: var(--sk-spacing-2) var(--sk-spacing-4);
+  font-size: var(--sk-font-size-base);
+  min-height: 40px;
+}
+
+.sk-tab--md .sk-tab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Large */
+.sk-tab--lg {
+  padding: var(--sk-spacing-3) var(--sk-spacing-5);
+  font-size: var(--sk-font-size-lg);
+  min-height: 48px;
+}
+
+.sk-tab--lg .sk-tab-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================================================
+   Tab Icons
+   ============================================================================ */
+
+.sk-tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sk-tab-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sk-tab-label {
+  display: inline-block;
+}
+
+/* ============================================================================
+   Variant: Line (underline)
+   ============================================================================ */
+
+.sk-tabs--line .sk-tab-list {
+  gap: 0;
+}
+
+.sk-tabs--line .sk-tab {
+  background: transparent;
+  border-radius: 0;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+
+.sk-tabs--line.sk-tabs--horizontal .sk-tab--selected {
+  border-bottom-color: var(--sk-color-primary);
+}
+
+.sk-tabs--line.sk-tabs--vertical .sk-tab {
+  margin-bottom: 0;
+  margin-right: -1px;
+  border-bottom: none;
+  border-right: 2px solid transparent;
+}
+
+.sk-tabs--line.sk-tabs--vertical .sk-tab--selected {
+  border-right-color: var(--sk-color-primary);
+}
+
+/* Animated indicator for line variant */
+.sk-tab-indicator {
+  position: absolute;
+  background-color: var(--sk-color-primary);
+  transition: transform var(--sk-transition-base), width var(--sk-transition-base), height var(--sk-transition-base);
+  pointer-events: none;
+}
+
+.sk-tabs--line.sk-tabs--horizontal .sk-tab-indicator {
+  bottom: 0;
+  left: 0;
+  height: 2px;
+}
+
+.sk-tabs--line.sk-tabs--vertical .sk-tab-indicator {
+  right: 0;
+  top: 0;
+  width: 2px;
+}
+
+/* ============================================================================
+   Variant: Enclosed (boxed)
+   ============================================================================ */
+
+.sk-tabs--enclosed .sk-tab-list {
+  background-color: var(--sk-color-background-alt);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-md);
+  padding: var(--sk-spacing-1);
+  gap: var(--sk-spacing-1);
+}
+
+.sk-tabs--enclosed.sk-tabs--horizontal .sk-tab-list {
+  border-bottom: 1px solid var(--sk-color-border);
+}
+
+.sk-tabs--enclosed.sk-tabs--vertical .sk-tab-list {
+  border-right: 1px solid var(--sk-color-border);
+}
+
+.sk-tabs--enclosed .sk-tab {
+  border-radius: var(--sk-radius-sm);
+  background: transparent;
+}
+
+.sk-tabs--enclosed .sk-tab:hover:not(.sk-tab--disabled):not(.sk-tab--selected) {
+  background-color: var(--sk-color-surface-hover);
+}
+
+.sk-tabs--enclosed .sk-tab--selected {
+  background-color: var(--sk-color-surface);
+  color: var(--sk-color-text);
+  box-shadow: var(--sk-shadow-sm);
+}
+
+/* ============================================================================
+   Variant: Soft Rounded
+   ============================================================================ */
+
+.sk-tabs--soft-rounded .sk-tab-list {
+  gap: var(--sk-spacing-2);
+  border: none;
+}
+
+.sk-tabs--soft-rounded .sk-tab {
+  border-radius: var(--sk-radius-full);
+  background: transparent;
+}
+
+.sk-tabs--soft-rounded .sk-tab:hover:not(.sk-tab--disabled):not(.sk-tab--selected) {
+  background-color: var(--sk-color-surface-hover);
+}
+
+.sk-tabs--soft-rounded .sk-tab--selected {
+  background-color: color-mix(in srgb, var(--sk-color-primary) 15%, transparent);
+  color: var(--sk-color-primary);
+}
+
+/* ============================================================================
+   Variant: Solid Rounded
+   ============================================================================ */
+
+.sk-tabs--solid-rounded .sk-tab-list {
+  gap: var(--sk-spacing-2);
+  border: none;
+}
+
+.sk-tabs--solid-rounded .sk-tab {
+  border-radius: var(--sk-radius-full);
+  background: transparent;
+}
+
+.sk-tabs--solid-rounded .sk-tab:hover:not(.sk-tab--disabled):not(.sk-tab--selected) {
+  background-color: var(--sk-color-surface-hover);
+}
+
+.sk-tabs--solid-rounded .sk-tab--selected {
+  background-color: var(--sk-color-primary);
+  color: var(--sk-color-text-on-primary);
+}
+
+/* ============================================================================
+   TabPanels & TabPanel
+   ============================================================================ */
+
+.sk-tab-panels {
+  flex: 1;
+  min-width: 0;
+}
+
+.sk-tab-panel {
+  padding: var(--sk-spacing-4);
+  outline: none;
+}
+
+.sk-tab-panel:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--sk-color-focus);
+  border-radius: var(--sk-radius-base);
+}
+
+.sk-tab-panel[hidden] {
+  display: none;
+}
+
+/* Size-specific panel padding */
+.sk-tabs--sm .sk-tab-panel {
+  padding: var(--sk-spacing-3);
+}
+
+.sk-tabs--lg .sk-tab-panel {
+  padding: var(--sk-spacing-5);
+}
+
+/* ============================================================================
+   Theme-Specific Overrides
+   ============================================================================ */
+
+/* Brutalist theme - sharp edges, no animations */
+[data-sk-theme="brutalist"] .sk-tabs--line .sk-tab--selected {
+  border-bottom-width: 4px;
+}
+
+[data-sk-theme="brutalist"] .sk-tabs--enclosed .sk-tab-list {
+  border-radius: 0;
+  border-width: 2px;
+}
+
+[data-sk-theme="brutalist"] .sk-tabs--enclosed .sk-tab {
+  border-radius: 0;
+}
+
+[data-sk-theme="brutalist"] .sk-tabs--enclosed .sk-tab--selected {
+  box-shadow: var(--sk-shadow-sm);
+}
+
+[data-sk-theme="brutalist"] .sk-tabs--soft-rounded .sk-tab,
+[data-sk-theme="brutalist"] .sk-tabs--solid-rounded .sk-tab {
+  border-radius: 0;
+}
+
+[data-sk-theme="brutalist"] .sk-tab-indicator {
+  height: 4px;
+  transition: none;
+}
+
+/* Glass theme - frosted glass effects */
+[data-sk-theme="glass"] .sk-tabs--enclosed .sk-tab-list {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme="glass"] .sk-tabs--enclosed .sk-tab--selected {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-sk-theme="glass"] .sk-tabs--soft-rounded .sk-tab--selected {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Retrowave theme - neon glow effects */
+[data-sk-theme="retrowave"] .sk-tab--selected {
+  text-shadow: 0 0 10px var(--sk-color-primary);
+}
+
+[data-sk-theme="retrowave"] .sk-tabs--line .sk-tab-indicator {
+  box-shadow: 0 0 10px var(--sk-color-primary), 0 0 20px var(--sk-color-primary);
+}
+
+[data-sk-theme="retrowave"] .sk-tabs--solid-rounded .sk-tab--selected {
+  box-shadow: 0 0 15px var(--sk-color-primary);
+}
+
+/* DarkLuxe theme - elegant shadows and gold accents */
+[data-sk-theme="darkLuxe"] .sk-tabs--enclosed .sk-tab-list {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-sk-theme="darkLuxe"] .sk-tabs--enclosed .sk-tab--selected {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Forest theme - organic, natural feel */
+[data-sk-theme="forest"] .sk-tabs--soft-rounded .sk-tab--selected {
+  background-color: color-mix(in srgb, var(--sk-color-primary) 20%, transparent);
+}
+
+/* Minimal theme - clean, understated */
+[data-sk-theme="minimal"] .sk-tabs--line .sk-tab-indicator {
+  height: 1px;
+}
+
+[data-sk-theme="minimal"] .sk-tabs--enclosed .sk-tab-list {
+  border-color: var(--sk-color-border);
+}
+
+/* RoseGold theme - warm, luxurious tones */
+[data-sk-theme="roseGold"] .sk-tabs--solid-rounded .sk-tab--selected {
+  background: linear-gradient(135deg, var(--sk-color-primary), var(--sk-color-primary-hover));
+}
+
+/* Cupertino theme - Apple-like polish */
+[data-sk-theme="cupertino"] .sk-tabs--enclosed .sk-tab-list {
+  background: var(--sk-color-background-alt);
+}
+
+[data-sk-theme="cupertino"] .sk-tabs--enclosed .sk-tab--selected {
+  background: var(--sk-color-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================================================
+   Responsive Adjustments
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .sk-tabs--horizontal .sk-tab-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .sk-tabs--horizontal .sk-tab-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sk-tab--sm {
+    padding: var(--sk-spacing-1) var(--sk-spacing-2);
+  }
+
+  .sk-tab--md {
+    padding: var(--sk-spacing-1-5) var(--sk-spacing-3);
+  }
+
+  .sk-tab--lg {
+    padding: var(--sk-spacing-2) var(--sk-spacing-4);
+  }
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-tab,
+  .sk-tab-indicator {
+    transition: none;
+  }
+}
+
+/* ============================================================================
+   High Contrast Mode
+   ============================================================================ */
+
+@media (prefers-contrast: high) {
+  .sk-tab--selected {
+    text-decoration: underline;
+  }
+
+  .sk-tabs--line .sk-tab--selected {
+    border-bottom-width: 3px;
+  }
+
+  .sk-tabs--enclosed .sk-tab--selected {
+    outline: 2px solid currentColor;
+  }
+}

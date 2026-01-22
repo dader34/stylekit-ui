@@ -1,0 +1,130 @@
+import { Theme } from '../types/theme';
+
+/**
+ * Rose Gold Theme
+ * Elegant, warm, and feminine with sophisticated blush tones,
+ * champagne accents, and a luxurious soft aesthetic.
+ */
+export const roseGoldTheme: Theme = {
+  name: 'roseGold',
+  displayName: 'Rose Gold',
+  colors: {
+    primary: '#B76E79',
+    primaryHover: '#A35E68',
+    primaryActive: '#8F4E58',
+    secondary: '#C9A78C',
+    secondaryHover: '#B8957A',
+    secondaryActive: '#A68368',
+    accent: '#D4AF37',
+    accentHover: '#C4A030',
+
+    background: '#FDF8F6',
+    backgroundAlt: '#FAF0ED',
+    backgroundElevated: '#FFFFFF',
+    backgroundOverlay: 'rgba(45, 35, 35, 0.5)',
+
+    surface: '#FFFFFF',
+    surfaceHover: '#FDF5F3',
+    surfaceActive: '#FAEDEA',
+    surfaceBorder: '#E8D5D0',
+
+    text: '#3D2C29',
+    textSecondary: '#5C4743',
+    textMuted: '#9D8480',
+    textOnPrimary: '#FFFFFF',
+    textOnSecondary: '#3D2C29',
+
+    success: '#7DB59A',
+    successBackground: '#EEF6F1',
+    warning: '#D4A574',
+    warningBackground: '#FBF3EC',
+    error: '#C67B7B',
+    errorBackground: '#F9EEEE',
+    info: '#8BAFBF',
+    infoBackground: '#EEF4F7',
+
+    border: '#E0CCC6',
+    borderHover: '#D4BAB3',
+    focus: 'rgba(183, 110, 121, 0.35)',
+    shadow: 'rgba(61, 44, 41, 0.06)',
+  },
+  typography: {
+    fontFamily:
+      '"Cormorant Garamond", "Playfair Display", "Georgia", "Times New Roman", serif',
+    fontFamilyMono: '"DM Mono", "Courier New", monospace',
+    fontFamilyDisplay:
+      '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '2rem',
+      '4xl': '2.75rem',
+    },
+    fontWeight: {
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+    },
+    lineHeight: {
+      tight: '1.25',
+      normal: '1.55',
+      relaxed: '1.75',
+    },
+    letterSpacing: {
+      tight: '0',
+      normal: '0.015em',
+      wide: '0.08em',
+    },
+  },
+  spacing: {
+    px: '1px',
+    0: '0',
+    0.5: '0.125rem',
+    1: '0.25rem',
+    1.5: '0.375rem',
+    2: '0.5rem',
+    2.5: '0.625rem',
+    3: '0.75rem',
+    4: '1rem',
+    5: '1.25rem',
+    6: '1.5rem',
+    8: '2rem',
+    10: '2.5rem',
+    12: '3rem',
+    16: '4rem',
+    20: '5rem',
+    24: '6rem',
+  },
+  borderRadius: {
+    none: '0',
+    sm: '0.125rem',
+    base: '0.25rem',
+    md: '0.375rem',
+    lg: '0.5rem',
+    xl: '0.75rem',
+    '2xl': '1rem',
+    full: '9999px',
+  },
+  shadows: {
+    none: 'none',
+    sm: '0 1px 3px rgba(61, 44, 41, 0.05)',
+    base: '0 2px 8px rgba(61, 44, 41, 0.07)',
+    md: '0 4px 12px rgba(61, 44, 41, 0.08)',
+    lg: '0 8px 24px rgba(61, 44, 41, 0.1)',
+    xl: '0 16px 40px rgba(61, 44, 41, 0.12)',
+    inner: 'inset 0 1px 3px rgba(61, 44, 41, 0.06)',
+    glow: '0 0 24px rgba(183, 110, 121, 0.25)',
+  },
+  transitions: {
+    fast: '150ms ease-out',
+    base: '250ms ease-out',
+    slow: '400ms ease-out',
+    bounce: '500ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+  },
+};

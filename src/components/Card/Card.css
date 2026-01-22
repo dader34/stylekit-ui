@@ -1,0 +1,595 @@
+/* ============================================================================
+   Card Component Styles
+   Uses CSS custom properties from the @stylekit/ui theme system
+   ============================================================================ */
+
+/* ============================================================================
+   Base Card Styles
+   ============================================================================ */
+
+.sk-card {
+  --card-bg: var(--sk-color-surface);
+  --card-border: var(--sk-color-border);
+  --card-radius: var(--sk-radius-lg);
+  --card-shadow: var(--sk-shadow-md);
+  --card-padding: var(--sk-spacing-4);
+  --card-gap: var(--sk-spacing-0);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  transition:
+    box-shadow var(--sk-transition-base),
+    transform var(--sk-transition-base),
+    border-color var(--sk-transition-base),
+    background-color var(--sk-transition-base);
+  overflow: hidden;
+}
+
+/* Full width modifier */
+.sk-card--full-width {
+  width: 100%;
+}
+
+/* No padding modifier - removes padding from children */
+.sk-card--no-padding .sk-card-header,
+.sk-card--no-padding .sk-card-body,
+.sk-card--no-padding .sk-card-footer {
+  padding: 0;
+}
+
+/* ============================================================================
+   Card Variants
+   ============================================================================ */
+
+/* Elevated - default shadow-based depth */
+.sk-card--elevated {
+  background: var(--sk-color-surface);
+  border: 1px solid transparent;
+  box-shadow: var(--sk-shadow-md);
+}
+
+.sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow: var(--sk-shadow-lg);
+}
+
+/* Outlined - border-based definition */
+.sk-card--outlined {
+  background: var(--sk-color-surface);
+  border: 1px solid var(--sk-color-border);
+  box-shadow: none;
+}
+
+.sk-card--outlined:hover:not(.sk-card--disabled) {
+  border-color: var(--sk-color-border-hover);
+}
+
+/* Filled - solid background color */
+.sk-card--filled {
+  background: var(--sk-color-background-alt);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.sk-card--filled:hover:not(.sk-card--disabled) {
+  background: var(--sk-color-surface-hover);
+}
+
+/* Ghost - minimal, transparent */
+.sk-card--ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.sk-card--ghost:hover:not(.sk-card--disabled) {
+  background: var(--sk-color-surface-hover);
+}
+
+/* ============================================================================
+   Interactive Card States
+   ============================================================================ */
+
+.sk-card--interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sk-card--interactive:hover:not(.sk-card--disabled) {
+  transform: translateY(-2px);
+}
+
+.sk-card--interactive:active:not(.sk-card--disabled) {
+  transform: translateY(0);
+}
+
+/* Focus styles for keyboard navigation */
+.sk-card--interactive:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--sk-shadow-md),
+    0 0 0 3px var(--sk-color-focus);
+}
+
+.sk-card--interactive.sk-card--outlined:focus-visible {
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+.sk-card--interactive.sk-card--filled:focus-visible,
+.sk-card--interactive.sk-card--ghost:focus-visible {
+  box-shadow: 0 0 0 3px var(--sk-color-focus);
+}
+
+/* Disabled state */
+.sk-card--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   Card Header
+   ============================================================================ */
+
+.sk-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-spacing-3);
+  padding: var(--sk-spacing-4);
+}
+
+.sk-card-header__avatar {
+  flex-shrink: 0;
+}
+
+.sk-card-header__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.sk-card-header__title {
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-lg);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-line-height-tight);
+  color: var(--sk-color-text);
+  letter-spacing: var(--sk-letter-spacing-tight);
+  margin: 0;
+}
+
+.sk-card-header__subtitle {
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-sm);
+  font-weight: var(--sk-font-weight-normal);
+  line-height: var(--sk-line-height-normal);
+  color: var(--sk-color-text-secondary);
+  margin-top: var(--sk-spacing-0-5);
+}
+
+.sk-card-header__action {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* ============================================================================
+   Card Body
+   ============================================================================ */
+
+.sk-card-body {
+  flex: 1;
+  padding: var(--sk-spacing-4);
+  padding-top: 0;
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-base);
+  line-height: var(--sk-line-height-relaxed);
+  color: var(--sk-color-text);
+}
+
+/* When header is not present, restore top padding */
+.sk-card-body:first-child {
+  padding-top: var(--sk-spacing-4);
+}
+
+.sk-card-body--no-padding {
+  padding: 0;
+}
+
+/* ============================================================================
+   Card Footer
+   ============================================================================ */
+
+.sk-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-spacing-2);
+  padding: var(--sk-spacing-4);
+  padding-top: var(--sk-spacing-2);
+}
+
+.sk-card-footer--divider {
+  border-top: 1px solid var(--sk-color-border);
+  padding-top: var(--sk-spacing-4);
+  margin-top: auto;
+}
+
+/* Alignment options */
+.sk-card-footer--start {
+  justify-content: flex-start;
+}
+
+.sk-card-footer--center {
+  justify-content: center;
+}
+
+.sk-card-footer--end {
+  justify-content: flex-end;
+}
+
+.sk-card-footer--between {
+  justify-content: space-between;
+}
+
+.sk-card-footer--around {
+  justify-content: space-around;
+}
+
+/* ============================================================================
+   Card Media
+   ============================================================================ */
+
+.sk-card-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--sk-color-background-alt);
+}
+
+.sk-card-media__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fit modifiers */
+.sk-card-media--cover .sk-card-media__image {
+  object-fit: cover;
+}
+
+.sk-card-media--contain .sk-card-media__image {
+  object-fit: contain;
+}
+
+.sk-card-media--fill .sk-card-media__image {
+  object-fit: fill;
+}
+
+.sk-card-media--none .sk-card-media__image {
+  object-fit: none;
+}
+
+/* Position modifiers */
+.sk-card-media--top {
+  order: -2;
+}
+
+.sk-card-media--bottom {
+  order: 999;
+}
+
+.sk-card-media--left {
+  /* Handled via parent flex direction */
+}
+
+.sk-card-media--right {
+  order: 1;
+}
+
+.sk-card-media--background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Ensure content appears above background media */
+.sk-card:has(.sk-card-media--background) .sk-card-header,
+.sk-card:has(.sk-card-media--background) .sk-card-body,
+.sk-card:has(.sk-card-media--background) .sk-card-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradient overlay for readability */
+.sk-card-media__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Custom overlay content */
+.sk-card-media__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sk-spacing-4);
+}
+
+/* ============================================================================
+   Horizontal Card Layout (with left/right media)
+   ============================================================================ */
+
+.sk-card:has(.sk-card-media--left),
+.sk-card:has(.sk-card-media--right) {
+  flex-direction: row;
+}
+
+.sk-card:has(.sk-card-media--left) .sk-card-media--left,
+.sk-card:has(.sk-card-media--right) .sk-card-media--right {
+  flex-shrink: 0;
+  width: 40%;
+  max-width: 200px;
+}
+
+/* Content wrapper for horizontal layouts */
+.sk-card:has(.sk-card-media--left) > :not(.sk-card-media),
+.sk-card:has(.sk-card-media--right) > :not(.sk-card-media) {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================================================
+   Theme-Specific Overrides
+   ============================================================================ */
+
+/* Glass theme - add backdrop blur */
+[data-sk-theme="glass"] .sk-card--elevated,
+[data-sk-theme="glass"] .sk-card--outlined {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme="glass"] .sk-card--elevated {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme="glass"] .sk-card--filled {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="glass"] .sk-card--interactive:hover:not(.sk-card--disabled) {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+/* Brutalist theme - sharp edges and heavy borders */
+[data-sk-theme="brutalist"] .sk-card {
+  border-radius: 0;
+  border: 3px solid var(--sk-color-border);
+}
+
+[data-sk-theme="brutalist"] .sk-card--elevated {
+  box-shadow: 6px 6px 0 var(--sk-color-shadow);
+}
+
+[data-sk-theme="brutalist"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow: 8px 8px 0 var(--sk-color-shadow);
+}
+
+[data-sk-theme="brutalist"] .sk-card--interactive:hover:not(.sk-card--disabled) {
+  transform: translate(-2px, -2px);
+}
+
+[data-sk-theme="brutalist"] .sk-card--interactive:active:not(.sk-card--disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--sk-color-shadow);
+}
+
+[data-sk-theme="brutalist"] .sk-card-footer--divider {
+  border-top: 3px solid var(--sk-color-border);
+}
+
+/* Retrowave theme - neon glow effects */
+[data-sk-theme="retrowave"] .sk-card--elevated {
+  border: 1px solid var(--sk-color-border);
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 10px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-sk-theme="retrowave"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow:
+    0 0 30px rgba(255, 0, 255, 0.5),
+    0 0 15px rgba(0, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: var(--sk-color-border-hover);
+}
+
+[data-sk-theme="retrowave"] .sk-card--outlined {
+  border: 1px solid var(--sk-color-border);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+[data-sk-theme="retrowave"] .sk-card--interactive:focus-visible {
+  box-shadow:
+    0 0 30px rgba(255, 0, 255, 0.5),
+    0 0 0 3px var(--sk-color-focus);
+}
+
+/* Dark Luxe theme - refined shadows and gold accents */
+[data-sk-theme="darkLuxe"] .sk-card--elevated {
+  background: linear-gradient(
+    145deg,
+    var(--sk-color-surface) 0%,
+    var(--sk-color-background-alt) 100%
+  );
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-sk-theme="darkLuxe"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  border-color: rgba(255, 215, 0, 0.2);
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 215, 0, 0.05);
+}
+
+[data-sk-theme="darkLuxe"] .sk-card-footer--divider {
+  border-top: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+/* Forest theme - organic, nature-inspired */
+[data-sk-theme="forest"] .sk-card--elevated {
+  background: linear-gradient(
+    180deg,
+    var(--sk-color-surface) 0%,
+    var(--sk-color-background-alt) 100%
+  );
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-sk-theme="forest"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Minimal theme - subtle and clean */
+[data-sk-theme="minimal"] .sk-card--elevated {
+  box-shadow: var(--sk-shadow-sm);
+}
+
+[data-sk-theme="minimal"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow: var(--sk-shadow-base);
+}
+
+[data-sk-theme="minimal"] .sk-card--interactive:hover:not(.sk-card--disabled) {
+  transform: translateY(-1px);
+}
+
+/* Rose Gold theme - warm, elegant tones */
+[data-sk-theme="roseGold"] .sk-card--elevated {
+  background: linear-gradient(
+    135deg,
+    var(--sk-color-surface) 0%,
+    var(--sk-color-background-elevated) 100%
+  );
+  box-shadow:
+    0 4px 20px rgba(183, 110, 121, 0.15),
+    0 2px 8px rgba(183, 110, 121, 0.1);
+}
+
+[data-sk-theme="roseGold"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow:
+    0 8px 30px rgba(183, 110, 121, 0.2),
+    0 4px 12px rgba(183, 110, 121, 0.15);
+}
+
+/* Cupertino theme - Apple-inspired refinements */
+[data-sk-theme="cupertino"] .sk-card--elevated {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-sk-theme="cupertino"] .sk-card--elevated:hover:not(.sk-card--disabled) {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-sk-theme="cupertino"] .sk-card--interactive:hover:not(.sk-card--disabled) {
+  transform: scale(1.01);
+}
+
+[data-sk-theme="cupertino"] .sk-card--interactive:active:not(.sk-card--disabled) {
+  transform: scale(0.99);
+}
+
+/* ============================================================================
+   Responsive Adjustments
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .sk-card-header,
+  .sk-card-body,
+  .sk-card-footer {
+    padding: var(--sk-spacing-3);
+  }
+
+  .sk-card-body:first-child {
+    padding-top: var(--sk-spacing-3);
+  }
+
+  .sk-card-footer {
+    padding-top: var(--sk-spacing-1-5);
+  }
+
+  .sk-card-footer--divider {
+    padding-top: var(--sk-spacing-3);
+  }
+
+  /* Stack horizontal cards on mobile */
+  .sk-card:has(.sk-card-media--left),
+  .sk-card:has(.sk-card-media--right) {
+    flex-direction: column;
+  }
+
+  .sk-card:has(.sk-card-media--left) .sk-card-media--left,
+  .sk-card:has(.sk-card-media--right) .sk-card-media--right {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* ============================================================================
+   Animation Utilities
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-card {
+    transition: none;
+  }
+
+  .sk-card--interactive:hover:not(.sk-card--disabled) {
+    transform: none;
+  }
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+  .sk-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  .sk-card--elevated,
+  .sk-card--filled,
+  .sk-card--ghost {
+    background: white;
+  }
+}

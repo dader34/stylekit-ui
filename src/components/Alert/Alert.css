@@ -1,0 +1,340 @@
+/* Alert Component Styles */
+/* Works with @stylekit/ui theme system across all 8 themes */
+
+.sk-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-spacing-3);
+  padding: var(--sk-spacing-4);
+  font-family: var(--sk-font-family);
+  line-height: var(--sk-line-height-normal);
+  border-radius: var(--sk-radius-md);
+  transition: var(--sk-transition-base);
+  transition-property: background-color, color, border-color, box-shadow;
+  position: relative;
+}
+
+/* ==================== Alert Content ==================== */
+
+.sk-alert__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-spacing-3);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ==================== Alert Icon ==================== */
+
+.sk-alert__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.125rem;
+}
+
+.sk-alert__icon > svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== Alert Title ==================== */
+
+.sk-alert__title {
+  font-size: var(--sk-font-size-base);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-line-height-tight);
+  margin-bottom: var(--sk-spacing-1);
+}
+
+/* ==================== Alert Description ==================== */
+
+.sk-alert__description {
+  font-size: var(--sk-font-size-sm);
+  font-weight: var(--sk-font-weight-normal);
+  line-height: var(--sk-line-height-relaxed);
+  color: inherit;
+  opacity: 0.9;
+}
+
+/* ==================== Close Button ==================== */
+
+.sk-alert__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  margin: calc(var(--sk-spacing-1) * -1);
+  background: transparent;
+  border: none;
+  border-radius: var(--sk-radius-sm);
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: var(--sk-transition-fast);
+  transition-property: opacity, background-color;
+}
+
+.sk-alert__close:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sk-alert__close:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--sk-color-focus);
+  outline-offset: 2px;
+}
+
+.sk-alert__close > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ==================== Subtle Variant ==================== */
+
+.sk-alert--subtle.sk-alert--info {
+  background-color: var(--sk-color-info-background);
+  color: var(--sk-color-info);
+}
+
+.sk-alert--subtle.sk-alert--success {
+  background-color: var(--sk-color-success-background);
+  color: var(--sk-color-success);
+}
+
+.sk-alert--subtle.sk-alert--warning {
+  background-color: var(--sk-color-warning-background);
+  color: var(--sk-color-warning);
+}
+
+.sk-alert--subtle.sk-alert--error {
+  background-color: var(--sk-color-error-background);
+  color: var(--sk-color-error);
+}
+
+/* ==================== Solid Variant ==================== */
+
+.sk-alert--solid.sk-alert--info {
+  background-color: var(--sk-color-info);
+  color: var(--sk-color-background);
+}
+
+.sk-alert--solid.sk-alert--success {
+  background-color: var(--sk-color-success);
+  color: var(--sk-color-background);
+}
+
+.sk-alert--solid.sk-alert--warning {
+  background-color: var(--sk-color-warning);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--solid.sk-alert--error {
+  background-color: var(--sk-color-error);
+  color: var(--sk-color-background);
+}
+
+.sk-alert--solid .sk-alert__close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==================== Left Accent Variant ==================== */
+
+.sk-alert--left-accent {
+  border-left: 4px solid currentColor;
+  border-radius: 0 var(--sk-radius-md) var(--sk-radius-md) 0;
+  background-color: var(--sk-color-surface);
+}
+
+.sk-alert--left-accent.sk-alert--info {
+  border-left-color: var(--sk-color-info);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--left-accent.sk-alert--info .sk-alert__icon {
+  color: var(--sk-color-info);
+}
+
+.sk-alert--left-accent.sk-alert--success {
+  border-left-color: var(--sk-color-success);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--left-accent.sk-alert--success .sk-alert__icon {
+  color: var(--sk-color-success);
+}
+
+.sk-alert--left-accent.sk-alert--warning {
+  border-left-color: var(--sk-color-warning);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--left-accent.sk-alert--warning .sk-alert__icon {
+  color: var(--sk-color-warning);
+}
+
+.sk-alert--left-accent.sk-alert--error {
+  border-left-color: var(--sk-color-error);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--left-accent.sk-alert--error .sk-alert__icon {
+  color: var(--sk-color-error);
+}
+
+/* ==================== Top Accent Variant ==================== */
+
+.sk-alert--top-accent {
+  border-top: 4px solid currentColor;
+  border-radius: 0 0 var(--sk-radius-md) var(--sk-radius-md);
+  background-color: var(--sk-color-surface);
+}
+
+.sk-alert--top-accent.sk-alert--info {
+  border-top-color: var(--sk-color-info);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--top-accent.sk-alert--info .sk-alert__icon {
+  color: var(--sk-color-info);
+}
+
+.sk-alert--top-accent.sk-alert--success {
+  border-top-color: var(--sk-color-success);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--top-accent.sk-alert--success .sk-alert__icon {
+  color: var(--sk-color-success);
+}
+
+.sk-alert--top-accent.sk-alert--warning {
+  border-top-color: var(--sk-color-warning);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--top-accent.sk-alert--warning .sk-alert__icon {
+  color: var(--sk-color-warning);
+}
+
+.sk-alert--top-accent.sk-alert--error {
+  border-top-color: var(--sk-color-error);
+  color: var(--sk-color-text);
+}
+
+.sk-alert--top-accent.sk-alert--error .sk-alert__icon {
+  color: var(--sk-color-error);
+}
+
+/* ==================== Theme-specific Enhancements ==================== */
+
+/* Glass theme - add backdrop blur and transparency */
+[data-sk-theme="glass"] .sk-alert--subtle {
+  backdrop-filter: blur(12px);
+  background-color: color-mix(in srgb, var(--sk-color-surface) 60%, transparent);
+  border: 1px solid var(--sk-color-border);
+}
+
+[data-sk-theme="glass"] .sk-alert--solid {
+  backdrop-filter: blur(8px);
+}
+
+[data-sk-theme="glass"] .sk-alert--left-accent,
+[data-sk-theme="glass"] .sk-alert--top-accent {
+  backdrop-filter: blur(8px);
+  background-color: color-mix(in srgb, var(--sk-color-surface) 70%, transparent);
+}
+
+/* Brutalist theme - sharp edges and bold styling */
+[data-sk-theme="brutalist"] .sk-alert {
+  border-radius: var(--sk-radius-none);
+  border: 2px solid var(--sk-color-text);
+}
+
+[data-sk-theme="brutalist"] .sk-alert--left-accent {
+  border-left-width: 6px;
+  border-radius: 0;
+}
+
+[data-sk-theme="brutalist"] .sk-alert--top-accent {
+  border-top-width: 6px;
+  border-radius: 0;
+}
+
+[data-sk-theme="brutalist"] .sk-alert__title {
+  text-transform: uppercase;
+  letter-spacing: var(--sk-letter-spacing-wide);
+}
+
+/* Retrowave theme - add glow effects */
+[data-sk-theme="retrowave"] .sk-alert--solid {
+  box-shadow: 0 0 20px currentColor;
+}
+
+[data-sk-theme="retrowave"] .sk-alert--subtle {
+  box-shadow: 0 0 15px color-mix(in srgb, currentColor 30%, transparent);
+}
+
+[data-sk-theme="retrowave"] .sk-alert--left-accent,
+[data-sk-theme="retrowave"] .sk-alert--top-accent {
+  box-shadow: var(--sk-shadow-md);
+}
+
+/* Dark Luxe theme - refined elegance */
+[data-sk-theme="darkLuxe"] .sk-alert {
+  box-shadow: var(--sk-shadow-md);
+}
+
+[data-sk-theme="darkLuxe"] .sk-alert__title {
+  letter-spacing: var(--sk-letter-spacing-wide);
+}
+
+/* Minimal theme - extra subtle styling */
+[data-sk-theme="minimal"] .sk-alert--subtle {
+  background-color: var(--sk-color-surface-hover);
+  border: 1px solid var(--sk-color-border);
+}
+
+[data-sk-theme="minimal"] .sk-alert--left-accent,
+[data-sk-theme="minimal"] .sk-alert--top-accent {
+  background-color: var(--sk-color-background);
+  border: 1px solid var(--sk-color-border);
+}
+
+/* Forest theme - organic styling */
+[data-sk-theme="forest"] .sk-alert {
+  border-radius: var(--sk-radius-lg);
+}
+
+[data-sk-theme="forest"] .sk-alert--left-accent {
+  border-radius: 0 var(--sk-radius-lg) var(--sk-radius-lg) 0;
+}
+
+[data-sk-theme="forest"] .sk-alert--top-accent {
+  border-radius: 0 0 var(--sk-radius-lg) var(--sk-radius-lg);
+}
+
+/* Rose Gold theme - elegant shadows */
+[data-sk-theme="roseGold"] .sk-alert {
+  box-shadow: var(--sk-shadow-sm);
+}
+
+[data-sk-theme="roseGold"] .sk-alert--solid {
+  box-shadow: var(--sk-shadow-md);
+}
+
+/* Cupertino theme - Apple-like refinement */
+[data-sk-theme="cupertino"] .sk-alert {
+  box-shadow: var(--sk-shadow-sm);
+}
+
+[data-sk-theme="cupertino"] .sk-alert--subtle {
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}

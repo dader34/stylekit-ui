@@ -1,0 +1,414 @@
+/**
+ * Checkbox Component Styles
+ *
+ * Uses CSS custom properties from the theme system for consistent
+ * styling across all 8 StyleKit themes.
+ */
+
+/* ============================================================================
+   CSS Custom Properties (Theme-aware defaults)
+   ============================================================================ */
+
+.sk-checkbox-wrapper {
+  /* Sizing */
+  --sk-checkbox-size-sm: 14px;
+  --sk-checkbox-size-md: 18px;
+  --sk-checkbox-size-lg: 22px;
+
+  /* Icon sizing */
+  --sk-checkbox-icon-size-sm: 10px;
+  --sk-checkbox-icon-size-md: 12px;
+  --sk-checkbox-icon-size-lg: 14px;
+
+  /* Spacing */
+  --sk-checkbox-gap-sm: var(--sk-spacing-2, 0.5rem);
+  --sk-checkbox-gap-md: var(--sk-spacing-2-5, 0.625rem);
+  --sk-checkbox-gap-lg: var(--sk-spacing-3, 0.75rem);
+
+  /* Typography */
+  --sk-checkbox-font-size-sm: var(--sk-font-size-sm, 0.8125rem);
+  --sk-checkbox-font-size-md: var(--sk-font-size-base, 0.9375rem);
+  --sk-checkbox-font-size-lg: var(--sk-font-size-lg, 1.0625rem);
+
+  /* Colors - Primary */
+  --sk-checkbox-color-primary: var(--sk-color-primary, #007AFF);
+  --sk-checkbox-color-primary-hover: var(--sk-color-primary-hover, #0056CC);
+
+  /* Colors - Success */
+  --sk-checkbox-color-success: var(--sk-color-success, #34C759);
+  --sk-checkbox-color-success-hover: var(--sk-color-success-hover, #2BA84A);
+
+  /* Colors - Warning */
+  --sk-checkbox-color-warning: var(--sk-color-warning, #FF9500);
+  --sk-checkbox-color-warning-hover: var(--sk-color-warning-hover, #E68600);
+
+  /* Colors - Error */
+  --sk-checkbox-color-error: var(--sk-color-error, #FF3B30);
+  --sk-checkbox-color-error-hover: var(--sk-color-error-hover, #E6352B);
+
+  /* Border & Background */
+  --sk-checkbox-border-color: var(--sk-color-border, #D1D1D6);
+  --sk-checkbox-border-color-hover: var(--sk-color-border-hover, #C6C6C8);
+  --sk-checkbox-bg: var(--sk-color-surface, #FFFFFF);
+  --sk-checkbox-bg-disabled: var(--sk-color-surface-active, #E5E5EA);
+
+  /* Text */
+  --sk-checkbox-label-color: var(--sk-color-text, #1D1D1F);
+  --sk-checkbox-description-color: var(--sk-color-text-muted, #8E8E93);
+  --sk-checkbox-check-color: var(--sk-color-text-on-primary, #FFFFFF);
+
+  /* Border radius */
+  --sk-checkbox-border-radius: var(--sk-border-radius-sm, 0.25rem);
+
+  /* Transitions */
+  --sk-checkbox-transition: var(--sk-transition-fast, 100ms cubic-bezier(0.25, 0.1, 0.25, 1));
+  --sk-checkbox-transition-bounce: var(--sk-transition-bounce, 400ms cubic-bezier(0.34, 1.56, 0.64, 1));
+
+  /* Focus */
+  --sk-checkbox-focus-ring: var(--sk-color-focus, rgba(0, 122, 255, 0.4));
+  --sk-checkbox-focus-ring-width: 3px;
+
+  /* Shadow */
+  --sk-checkbox-shadow: var(--sk-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.04));
+}
+
+/* ============================================================================
+   Checkbox Wrapper
+   ============================================================================ */
+
+.sk-checkbox-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  font-family: var(--sk-font-family, inherit);
+}
+
+.sk-checkbox-wrapper--sm {
+  gap: var(--sk-checkbox-gap-sm);
+  font-size: var(--sk-checkbox-font-size-sm);
+}
+
+.sk-checkbox-wrapper--md {
+  gap: var(--sk-checkbox-gap-md);
+  font-size: var(--sk-checkbox-font-size-md);
+}
+
+.sk-checkbox-wrapper--lg {
+  gap: var(--sk-checkbox-gap-lg);
+  font-size: var(--sk-checkbox-font-size-lg);
+}
+
+.sk-checkbox-wrapper--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================================================
+   Hidden Native Input
+   ============================================================================ */
+
+.sk-checkbox-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================================
+   Checkbox Control Container
+   ============================================================================ */
+
+.sk-checkbox-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   Custom Checkbox Box
+   ============================================================================ */
+
+.sk-checkbox-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sk-checkbox-bg);
+  border: 2px solid var(--sk-checkbox-border-color);
+  border-radius: var(--sk-checkbox-border-radius);
+  transition:
+    background-color var(--sk-checkbox-transition),
+    border-color var(--sk-checkbox-transition),
+    box-shadow var(--sk-checkbox-transition),
+    transform var(--sk-checkbox-transition);
+  box-shadow: var(--sk-checkbox-shadow);
+}
+
+/* Size variants */
+.sk-checkbox-box--sm {
+  width: var(--sk-checkbox-size-sm);
+  height: var(--sk-checkbox-size-sm);
+}
+
+.sk-checkbox-box--md {
+  width: var(--sk-checkbox-size-md);
+  height: var(--sk-checkbox-size-md);
+}
+
+.sk-checkbox-box--lg {
+  width: var(--sk-checkbox-size-lg);
+  height: var(--sk-checkbox-size-lg);
+}
+
+/* Hover state */
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):hover .sk-checkbox-box {
+  border-color: var(--sk-checkbox-border-color-hover);
+}
+
+/* Focus state */
+.sk-checkbox-input:focus-visible + .sk-checkbox-box {
+  outline: none;
+  box-shadow:
+    var(--sk-checkbox-shadow),
+    0 0 0 var(--sk-checkbox-focus-ring-width) var(--sk-checkbox-focus-ring);
+}
+
+/* ============================================================================
+   Color Variants - Checked State
+   ============================================================================ */
+
+/* Primary */
+.sk-checkbox-box--primary.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-primary);
+  border-color: var(--sk-checkbox-color-primary);
+}
+
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):hover
+.sk-checkbox-box--primary.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-primary-hover);
+  border-color: var(--sk-checkbox-color-primary-hover);
+}
+
+/* Success */
+.sk-checkbox-box--success.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-success);
+  border-color: var(--sk-checkbox-color-success);
+}
+
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):hover
+.sk-checkbox-box--success.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-success-hover);
+  border-color: var(--sk-checkbox-color-success-hover);
+}
+
+/* Warning */
+.sk-checkbox-box--warning.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-warning);
+  border-color: var(--sk-checkbox-color-warning);
+}
+
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):hover
+.sk-checkbox-box--warning.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-warning-hover);
+  border-color: var(--sk-checkbox-color-warning-hover);
+}
+
+/* Error */
+.sk-checkbox-box--error.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-error);
+  border-color: var(--sk-checkbox-color-error);
+}
+
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):hover
+.sk-checkbox-box--error.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-color-error-hover);
+  border-color: var(--sk-checkbox-color-error-hover);
+}
+
+/* ============================================================================
+   Disabled State
+   ============================================================================ */
+
+.sk-checkbox-box--disabled {
+  background-color: var(--sk-checkbox-bg-disabled);
+  border-color: var(--sk-checkbox-border-color);
+  cursor: not-allowed;
+}
+
+.sk-checkbox-box--disabled.sk-checkbox-box--checked {
+  background-color: var(--sk-checkbox-border-color);
+  border-color: var(--sk-checkbox-border-color);
+}
+
+/* ============================================================================
+   Check/Indeterminate Icon
+   ============================================================================ */
+
+.sk-checkbox-icon {
+  color: var(--sk-checkbox-check-color);
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity var(--sk-checkbox-transition),
+    transform var(--sk-checkbox-transition-bounce);
+}
+
+.sk-checkbox-box--sm .sk-checkbox-icon {
+  width: var(--sk-checkbox-icon-size-sm);
+  height: var(--sk-checkbox-icon-size-sm);
+}
+
+.sk-checkbox-box--md .sk-checkbox-icon {
+  width: var(--sk-checkbox-icon-size-md);
+  height: var(--sk-checkbox-icon-size-md);
+}
+
+.sk-checkbox-box--lg .sk-checkbox-icon {
+  width: var(--sk-checkbox-icon-size-lg);
+  height: var(--sk-checkbox-icon-size-lg);
+}
+
+/* Show icon when checked */
+.sk-checkbox-box--checked .sk-checkbox-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animated check mark path */
+.sk-checkbox-check-path {
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  transition: stroke-dashoffset var(--sk-checkbox-transition-bounce);
+}
+
+.sk-checkbox-box--checked .sk-checkbox-check-path {
+  stroke-dashoffset: 0;
+}
+
+/* Animated indeterminate path */
+.sk-checkbox-indeterminate-path {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  transition: stroke-dashoffset var(--sk-checkbox-transition-bounce);
+}
+
+.sk-checkbox-box--indeterminate .sk-checkbox-indeterminate-path {
+  stroke-dashoffset: 0;
+}
+
+/* ============================================================================
+   Label & Description
+   ============================================================================ */
+
+.sk-checkbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding-top: 0.0625rem; /* Slight vertical alignment adjustment */
+}
+
+.sk-checkbox-label {
+  color: var(--sk-checkbox-label-color);
+  line-height: var(--sk-line-height-normal, 1.47);
+  font-weight: var(--sk-font-weight-normal, 400);
+}
+
+.sk-checkbox-description {
+  color: var(--sk-checkbox-description-color);
+  font-size: 0.875em;
+  line-height: var(--sk-line-height-relaxed, 1.6);
+}
+
+/* Disabled text states */
+.sk-checkbox-wrapper--disabled .sk-checkbox-label,
+.sk-checkbox-wrapper--disabled .sk-checkbox-description {
+  color: var(--sk-checkbox-description-color);
+}
+
+/* ============================================================================
+   Checkbox Group
+   ============================================================================ */
+
+.sk-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-3, 0.75rem);
+}
+
+.sk-checkbox-group--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.sk-checkbox-group-label {
+  color: var(--sk-checkbox-label-color);
+  font-size: var(--sk-font-size-sm, 0.8125rem);
+  font-weight: var(--sk-font-weight-medium, 500);
+  margin-bottom: var(--sk-spacing-1, 0.25rem);
+}
+
+.sk-checkbox-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-2, 0.5rem);
+}
+
+.sk-checkbox-group--horizontal .sk-checkbox-group-items {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--sk-spacing-4, 1rem);
+}
+
+/* ============================================================================
+   Active/Press State Animation
+   ============================================================================ */
+
+.sk-checkbox-wrapper:not(.sk-checkbox-wrapper--disabled):active .sk-checkbox-box {
+  transform: scale(0.92);
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-checkbox-box,
+  .sk-checkbox-icon,
+  .sk-checkbox-check-path,
+  .sk-checkbox-indeterminate-path {
+    transition: none;
+  }
+}
+
+/* ============================================================================
+   High Contrast Mode
+   ============================================================================ */
+
+@media (forced-colors: active) {
+  .sk-checkbox-box {
+    border: 2px solid CanvasText;
+    background: Canvas;
+  }
+
+  .sk-checkbox-box--checked {
+    background: Highlight;
+    border-color: Highlight;
+  }
+
+  .sk-checkbox-icon {
+    color: HighlightText;
+  }
+
+  .sk-checkbox-input:focus-visible + .sk-checkbox-box {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}

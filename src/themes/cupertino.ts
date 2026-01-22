@@ -1,0 +1,130 @@
+import { Theme } from '../types/theme';
+
+/**
+ * Cupertino Theme
+ * Apple-inspired design with SF Pro aesthetics, pristine whites,
+ * subtle grays, and that signature clean sophistication.
+ */
+export const cupertinoTheme: Theme = {
+  name: 'cupertino',
+  displayName: 'Cupertino',
+  colors: {
+    primary: '#007AFF',
+    primaryHover: '#0056CC',
+    primaryActive: '#004BB5',
+    secondary: '#5856D6',
+    secondaryHover: '#4745B5',
+    secondaryActive: '#3D3B9E',
+    accent: '#FF2D55',
+    accentHover: '#E6294D',
+
+    background: '#FFFFFF',
+    backgroundAlt: '#F2F2F7',
+    backgroundElevated: '#FFFFFF',
+    backgroundOverlay: 'rgba(0, 0, 0, 0.4)',
+
+    surface: '#FFFFFF',
+    surfaceHover: '#F2F2F7',
+    surfaceActive: '#E5E5EA',
+    surfaceBorder: '#C6C6C8',
+
+    text: '#1D1D1F',
+    textSecondary: '#3C3C43',
+    textMuted: '#8E8E93',
+    textOnPrimary: '#FFFFFF',
+    textOnSecondary: '#FFFFFF',
+
+    success: '#34C759',
+    successBackground: '#E8F8ED',
+    warning: '#FF9500',
+    warningBackground: '#FFF4E5',
+    error: '#FF3B30',
+    errorBackground: '#FFEBE9',
+    info: '#5AC8FA',
+    infoBackground: '#E5F6FD',
+
+    border: '#D1D1D6',
+    borderHover: '#C6C6C8',
+    focus: 'rgba(0, 122, 255, 0.4)',
+    shadow: 'rgba(0, 0, 0, 0.04)',
+  },
+  typography: {
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif',
+    fontFamilyMono: '"SF Mono", "Menlo", "Monaco", "Courier New", monospace',
+    fontFamilyDisplay:
+      '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+    fontSize: {
+      xs: '0.6875rem',
+      sm: '0.8125rem',
+      base: '0.9375rem',
+      lg: '1.0625rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.5rem',
+    },
+    fontWeight: {
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+    },
+    lineHeight: {
+      tight: '1.2',
+      normal: '1.47',
+      relaxed: '1.6',
+    },
+    letterSpacing: {
+      tight: '-0.022em',
+      normal: '-0.01em',
+      wide: '0.02em',
+    },
+  },
+  spacing: {
+    px: '1px',
+    0: '0',
+    0.5: '0.125rem',
+    1: '0.25rem',
+    1.5: '0.375rem',
+    2: '0.5rem',
+    2.5: '0.625rem',
+    3: '0.75rem',
+    4: '1rem',
+    5: '1.25rem',
+    6: '1.5rem',
+    8: '2rem',
+    10: '2.5rem',
+    12: '3rem',
+    16: '4rem',
+    20: '5rem',
+    24: '6rem',
+  },
+  borderRadius: {
+    none: '0',
+    sm: '0.25rem',
+    base: '0.5rem',
+    md: '0.75rem',
+    lg: '1rem',
+    xl: '1.25rem',
+    '2xl': '1.5rem',
+    full: '9999px',
+  },
+  shadows: {
+    none: 'none',
+    sm: '0 1px 2px rgba(0, 0, 0, 0.04)',
+    base: '0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04)',
+    md: '0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03)',
+    lg: '0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03)',
+    xl: '0 20px 25px rgba(0, 0, 0, 0.06), 0 8px 10px rgba(0, 0, 0, 0.03)',
+    inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.04)',
+    glow: '0 0 20px rgba(0, 122, 255, 0.3)',
+  },
+  transitions: {
+    fast: '100ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+    base: '200ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+    slow: '300ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+    bounce: '400ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+  },
+};

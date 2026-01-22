@@ -1,0 +1,420 @@
+/* ============================================================================
+   Radio Component Styles
+
+   Uses CSS variables from the theme system (--sk-*) to ensure
+   consistent styling across all 8 themes.
+   ============================================================================ */
+
+/* ============================================================================
+   Base Radio Styles
+   ============================================================================ */
+
+.sk-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--sk-spacing-2);
+  cursor: pointer;
+  position: relative;
+  font-family: var(--sk-font-family);
+  line-height: var(--sk-line-height-normal);
+  user-select: none;
+  transition: opacity var(--sk-transition-fast);
+}
+
+.sk-radio:hover:not(.sk-radio--disabled) .sk-radio__control {
+  border-color: var(--sk-color-border-hover);
+  box-shadow: var(--sk-shadow-sm);
+}
+
+/* Input wrapper - positions the hidden input and custom control */
+.sk-radio__input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Hidden native input - still accessible */
+.sk-radio__input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.sk-radio__input:disabled {
+  cursor: not-allowed;
+}
+
+/* Custom radio control (the visible circle) */
+.sk-radio__control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sk-radius-full);
+  border: 2px solid var(--sk-color-border);
+  background-color: var(--sk-color-surface);
+  transition:
+    border-color var(--sk-transition-fast),
+    background-color var(--sk-transition-fast),
+    box-shadow var(--sk-transition-fast),
+    transform var(--sk-transition-fast);
+}
+
+/* Selection indicator (the inner filled circle) */
+.sk-radio__indicator {
+  border-radius: var(--sk-radius-full);
+  background-color: currentColor;
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform var(--sk-transition-bounce),
+    opacity var(--sk-transition-fast);
+}
+
+/* Label wrapper */
+.sk-radio__label-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-0-5);
+  padding-top: 1px;
+}
+
+.sk-radio__label {
+  font-weight: var(--sk-font-weight-normal);
+  color: var(--sk-color-text);
+  transition: color var(--sk-transition-fast);
+}
+
+.sk-radio__description {
+  font-size: var(--sk-font-size-sm);
+  color: var(--sk-color-text-muted);
+  line-height: var(--sk-line-height-normal);
+}
+
+/* ============================================================================
+   Checked State
+   ============================================================================ */
+
+.sk-radio--checked .sk-radio__indicator {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ============================================================================
+   Focus State
+   ============================================================================ */
+
+.sk-radio__input:focus-visible + .sk-radio__control {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--sk-color-background),
+    0 0 0 4px var(--sk-color-focus);
+}
+
+/* ============================================================================
+   Disabled State
+   ============================================================================ */
+
+.sk-radio--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sk-radio--disabled .sk-radio__control {
+  background-color: var(--sk-color-surface-active);
+}
+
+/* ============================================================================
+   Sizes
+   ============================================================================ */
+
+/* Small */
+.sk-radio--sm .sk-radio__control {
+  width: 14px;
+  height: 14px;
+}
+
+.sk-radio--sm .sk-radio__indicator {
+  width: 6px;
+  height: 6px;
+}
+
+.sk-radio--sm .sk-radio__label {
+  font-size: var(--sk-font-size-sm);
+}
+
+.sk-radio--sm .sk-radio__description {
+  font-size: var(--sk-font-size-xs);
+}
+
+/* Medium (default) */
+.sk-radio--md .sk-radio__control {
+  width: 18px;
+  height: 18px;
+}
+
+.sk-radio--md .sk-radio__indicator {
+  width: 8px;
+  height: 8px;
+}
+
+.sk-radio--md .sk-radio__label {
+  font-size: var(--sk-font-size-base);
+}
+
+/* Large */
+.sk-radio--lg .sk-radio__control {
+  width: 22px;
+  height: 22px;
+}
+
+.sk-radio--lg .sk-radio__indicator {
+  width: 10px;
+  height: 10px;
+}
+
+.sk-radio--lg .sk-radio__label {
+  font-size: var(--sk-font-size-lg);
+}
+
+.sk-radio--lg .sk-radio__description {
+  font-size: var(--sk-font-size-base);
+}
+
+/* ============================================================================
+   Colors
+   ============================================================================ */
+
+/* Primary */
+.sk-radio--primary.sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-primary);
+  background-color: var(--sk-color-primary);
+  color: var(--sk-color-text-on-primary);
+}
+
+.sk-radio--primary:hover:not(.sk-radio--disabled).sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-primary-hover);
+  background-color: var(--sk-color-primary-hover);
+}
+
+/* Success */
+.sk-radio--success.sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-success);
+  background-color: var(--sk-color-success);
+  color: white;
+}
+
+.sk-radio--success:hover:not(.sk-radio--disabled).sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-success);
+  background-color: var(--sk-color-success);
+  filter: brightness(0.95);
+}
+
+/* Warning */
+.sk-radio--warning.sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-warning);
+  background-color: var(--sk-color-warning);
+  color: white;
+}
+
+.sk-radio--warning:hover:not(.sk-radio--disabled).sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-warning);
+  background-color: var(--sk-color-warning);
+  filter: brightness(0.95);
+}
+
+/* Error */
+.sk-radio--error.sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-error);
+  background-color: var(--sk-color-error);
+  color: white;
+}
+
+.sk-radio--error:hover:not(.sk-radio--disabled).sk-radio--checked .sk-radio__control {
+  border-color: var(--sk-color-error);
+  background-color: var(--sk-color-error);
+  filter: brightness(0.95);
+}
+
+/* ============================================================================
+   RadioGroup Styles
+   ============================================================================ */
+
+.sk-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-2);
+}
+
+.sk-radio-group__label {
+  font-family: var(--sk-font-family);
+  font-size: var(--sk-font-size-sm);
+  font-weight: var(--sk-font-weight-medium);
+  color: var(--sk-color-text);
+  margin-bottom: var(--sk-spacing-1);
+}
+
+.sk-radio-group__items {
+  display: flex;
+  gap: var(--sk-spacing-3);
+}
+
+/* Vertical orientation (default) */
+.sk-radio-group--vertical .sk-radio-group__items {
+  flex-direction: column;
+}
+
+/* Horizontal orientation */
+.sk-radio-group--horizontal .sk-radio-group__items {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Disabled group */
+.sk-radio-group--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   Theme-specific Adjustments
+   ============================================================================ */
+
+/* Glass theme - add backdrop blur effect */
+[data-sk-theme="glass"] .sk-radio__control {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-sk-theme="glass"] .sk-radio--checked .sk-radio__control {
+  backdrop-filter: blur(12px);
+}
+
+/* Brutalist theme - sharper edges, bolder borders */
+[data-sk-theme="brutalist"] .sk-radio__control {
+  border-width: 3px;
+  box-shadow: 2px 2px 0 var(--sk-color-text);
+}
+
+[data-sk-theme="brutalist"] .sk-radio--checked .sk-radio__control {
+  box-shadow: 2px 2px 0 var(--sk-color-primary);
+}
+
+[data-sk-theme="brutalist"] .sk-radio__input:focus-visible + .sk-radio__control {
+  box-shadow:
+    2px 2px 0 var(--sk-color-primary),
+    0 0 0 2px var(--sk-color-background),
+    0 0 0 4px var(--sk-color-focus);
+}
+
+/* Retrowave theme - add glow effect */
+[data-sk-theme="retrowave"] .sk-radio--checked .sk-radio__control {
+  box-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor;
+}
+
+[data-sk-theme="retrowave"] .sk-radio__input:focus-visible + .sk-radio__control {
+  box-shadow:
+    0 0 10px var(--sk-color-primary),
+    0 0 20px var(--sk-color-primary),
+    0 0 0 2px var(--sk-color-background),
+    0 0 0 4px var(--sk-color-focus);
+}
+
+/* Dark Luxe theme - refined shadows and subtle gradients */
+[data-sk-theme="darkLuxe"] .sk-radio__control {
+  background: linear-gradient(
+    145deg,
+    var(--sk-color-surface) 0%,
+    var(--sk-color-surface-hover) 100%
+  );
+}
+
+[data-sk-theme="darkLuxe"] .sk-radio--checked .sk-radio__control {
+  background: linear-gradient(
+    145deg,
+    var(--sk-color-primary) 0%,
+    var(--sk-color-primary-hover) 100%
+  );
+}
+
+/* Forest theme - organic, natural feel */
+[data-sk-theme="forest"] .sk-radio__control {
+  transition:
+    border-color var(--sk-transition-slow),
+    background-color var(--sk-transition-slow),
+    box-shadow var(--sk-transition-slow),
+    transform var(--sk-transition-slow);
+}
+
+[data-sk-theme="forest"] .sk-radio__indicator {
+  transition:
+    transform var(--sk-transition-slow),
+    opacity var(--sk-transition-slow);
+}
+
+/* Rose Gold theme - elegant warm tones handled by CSS vars */
+/* Minimal theme - clean, precise styling */
+[data-sk-theme="minimal"] .sk-radio__control {
+  border-width: 1px;
+}
+
+[data-sk-theme="minimal"] .sk-radio--checked .sk-radio__control {
+  border-width: 2px;
+}
+
+/* Cupertino theme - iOS-inspired smooth animations */
+[data-sk-theme="cupertino"] .sk-radio__indicator {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-sk-theme="cupertino"] .sk-radio--checked .sk-radio__control {
+  transform: scale(1.02);
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes sk-radio-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--sk-color-primary);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Optional pulse animation on selection - can be triggered via JS */
+.sk-radio--animate-pulse .sk-radio__control {
+  animation: sk-radio-pulse 0.4s ease-out;
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-radio__control,
+  .sk-radio__indicator,
+  .sk-radio__label,
+  .sk-radio {
+    transition: none;
+  }
+
+  .sk-radio--animate-pulse .sk-radio__control {
+    animation: none;
+  }
+}
