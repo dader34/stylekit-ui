@@ -1,4 +1,4 @@
-# 🌲 StyleKit UI
+# StyleKit UI
 
 **A React component library with 8 beautiful, distinct themes**
 
@@ -13,10 +13,10 @@ StyleKit UI provides a complete set of accessible, customizable React components
 
 ### Why StyleKit?
 
-- 🎨 **8 Unique Themes** — Not just color swaps, but complete aesthetic transformations including typography, spacing, shadows, and animations
-- 📘 **TypeScript First** — Full type safety with exported types for all components and themes
-- ♿ **Accessible** — WCAG 2.1 compliant with proper ARIA attributes and keyboard navigation
-- 🌳 **Tree-Shakeable** — Import only what you need
+- **8 Unique Themes** — Not just color swaps, but complete aesthetic transformations including typography, spacing, shadows, and animations
+- **TypeScript First** — Full type safety with exported types for all components and themes
+- **Accessible** — WCAG 2.1 compliant with proper ARIA attributes and keyboard navigation
+- **Tree-Shakeable** — Import only what you need
 
 ---
 
